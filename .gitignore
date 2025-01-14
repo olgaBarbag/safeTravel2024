@@ -1,0 +1,50 @@
+﻿# Ignore build outputs
+bin/
+obj/
+out/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.csproj.user
+*.vspxproj.user
+*.log
+*.tlog
+*.ide
+
+# Visual Studio files
+.vs/
+.vscode/
+
+# Ignore publish outputs
+.publish/
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Package management
+*.nupkg
+*.snupkg
+packages/
+
+# Ignore secrets or sensitive files
+secrets.json
+appsettings.json
+appsettings.*.json
+
+# Entity Framework migrations history
+Migrations/
+
+# Generated files
+*.generated.cs
+ServiceReferences/
+
+# Resharper and Rider settings
+.idea/
+*.sln.iml
+*.DotSettings.user
+
+# Windows OS files
+Thumbs.db
+desktop.ini

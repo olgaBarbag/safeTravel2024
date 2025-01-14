@@ -1,0 +1,6 @@
+@SafeTravelApp_HostAddress = http://localhost:5032
+
+GET {{SafeTravelApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
