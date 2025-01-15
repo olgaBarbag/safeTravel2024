@@ -2,7 +2,7 @@
 using SafeTravelApp.Core.Enums;
 using SafeTravelApp.Data;
 using SafeTravelApp.Models;
-using SchoolApp.Security;
+using SafeTravelApp.Security;
 
 namespace SafeTravelApp.Repositories
 {

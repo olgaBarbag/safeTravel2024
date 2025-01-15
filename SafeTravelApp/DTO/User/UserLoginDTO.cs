@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SafeTravelApp.DTO
+namespace SafeTravelApp.DTO.User
 {
     public class UserLoginDTO
     {

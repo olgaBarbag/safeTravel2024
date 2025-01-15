@@ -1,5 +1,5 @@
 ﻿
-namespace SchoolApp.Security
+namespace SafeTravelApp.Security
 {
     public static class EncryptionUtil
     {
