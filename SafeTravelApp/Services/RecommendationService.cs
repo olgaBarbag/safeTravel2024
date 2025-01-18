@@ -2,6 +2,7 @@
 using SafeTravelApp.Core.Enums;
 using SafeTravelApp.Core.Filters;
 using SafeTravelApp.Data;
+using SafeTravelApp.DTO.Citizen;
 using SafeTravelApp.DTO.Recommendation;
 using SafeTravelApp.DTO.User;
 using SafeTravelApp.Exceptions;
@@ -130,59 +131,110 @@ namespace SafeTravelApp.Services
             }
         }
 
-        public Task<List<DestinationRecommendationReadOnlyDTO>> GetRecommendationsByContributorIdAsync(int contributorId)
+        public async Task<List<DestinationRecommendationReadOnlyDTO>> GetRecommendationsByContributorIdAsync(int contributorId)
         {
-            throw new NotImplementedException();
+            List<DestinationRecommendationReadOnlyDTO>? destinationRecommendationReadOnlyDTOs = new();
+
+            try
+            {
+               
+                List<Recommendation>? recommendations = await _unitOfWork.RecommendationRepository.GetRecommendationsByContributorId(contributorId);
+
+                if (recommendations == null)
+                {
+                    _logger.LogInformation("{Message}", "Recommendations by contributor : " + contributorId + "weren't found");
+                    return null; ;
+                }
+
+                destinationRecommendationReadOnlyDTOs = _mapper.Map<List<DestinationRecommendationReadOnlyDTO>>(recommendations);
+
+                _logger.LogInformation("{Message}", "Recommendations by contributor : " + contributorId + "were retrieved successfully");
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError("{Message}{Excpetion}", ex.Message, ex.StackTrace);
+            }
+
+            return destinationRecommendationReadOnlyDTOs;
         }
                 
-        public Task<List<DestinationRecommendationReadOnlyDTO>> GetRecommendationsByDestinationAsync(RecommendationFiltersDTO recommendationFiltersDTO)
+        public async Task<List<DestinationRecommendationReadOnlyDTO>> GetRecommendationsByDestinationAsync(RecommendationFiltersDTO recommendationFiltersDTO)
         {
-            throw new NotImplementedException();
+            List<DestinationRecommendationReadOnlyDTO>? destinationRecommendationReadOnlyDTOs = new();
+
+            try
+            {
+                List<Func<Destination, bool>> predicates = GetDestinationRecommendationPredicates(recommendationFiltersDTO);
+
+                List<Recommendation>? recommendations = await _unitOfWork.RecommendationRepository.GetRecommendationsByDestinationFiltered(predicates);
+
+                if (recommendations == null)
+                {
+                    _logger.LogInformation("{Message}", "Recommendations weren't found");
+                    return null; ;
+                }
+
+                destinationRecommendationReadOnlyDTOs = _mapper.Map<List<DestinationRecommendationReadOnlyDTO>>(recommendations);
+
+                _logger.LogInformation("{Message}", "Recommendations retrieved successfully");
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError("{Message}{Excpetion}", ex.Message, ex.StackTrace);
+            }
+
+            return destinationRecommendationReadOnlyDTOs;
         }
 
-        public Task<Recommendation?> GetRecommendationByIdAsync(int id)
+        public async Task<Recommendation?> GetRecommendationByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            Recommendation? recommendation = null;
+            try
+            {
+                recommendation = await _unitOfWork.RecommendationRepository.GetByIdAsync(id);
+
+                if (recommendation == null)
+                {
+                    _logger.LogInformation("{Message}", "Recommendation wasn't found");
+                    return null; ;
+                }
+
+                _logger.LogInformation("{Message}", "Recommendations retrieved successfully");
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError("{Message}{Excpetion}", ex.Message, ex.StackTrace);
+            }
+
+            return recommendation;
         }
 
+        private List<Func<Destination, bool>> GetDestinationRecommendationPredicates(RecommendationFiltersDTO recommendationFiltersDTO)
+        {
+            List<Func<Destination, bool>> predicates = new();
 
-        //private async Task<User?> GetUserAsync()
-        //{
-        //    try
-        //    {
-        //        // Ανάκτηση του userId από τα claims
-        //        var userIdString = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-        //        if (string.IsNullOrEmpty(userIdString))
-        //        {
-        //            _logger.LogWarning("User ID not found in claims.");
-        //            return null;
-        //        }
-
-        //        // Μετατροπή σε ακέραιο
-        //        if (!int.TryParse(userIdString, out var userId))
-        //        {
-        //            _logger.LogWarning("Invalid User ID format in claims: {UserIdString}", userIdString);
-        //            return null;
-        //        }
-
-        //        // Ανάκτηση του χρήστη από το repository
-        //        var user = await _unitOfWork!.UserRepository.GetByIdAsync(userId);
-
-        //        if (user == null)
-        //        {
-        //            _logger.LogWarning("User with ID {UserId} not found in database.", userId);
-        //        }
-
-        //        return user;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Logging σε περίπτωση σφάλματος
-        //        _logger.LogError(ex, "An error occurred while retrieving the user.");
-        //        return null;
-        //    }
-        //}
+            if (!string.IsNullOrEmpty(recommendationFiltersDTO.Country))
+            {
+                predicates.Add(d => d.Country == recommendationFiltersDTO.Country);
+            }
+            if (!string.IsNullOrEmpty(recommendationFiltersDTO.City))
+            {
+                predicates.Add(d => d.City == recommendationFiltersDTO.City);
+            }
+            if (!string.IsNullOrEmpty(recommendationFiltersDTO.Title))
+            {
+                predicates.Add(d => d.Recommendations!.Any(r => r.Title == recommendationFiltersDTO.Title));
+            }
+            if (!string.IsNullOrEmpty(recommendationFiltersDTO.DestinationCategory))
+            {
+                predicates.Add(d => d.Categories!.Any(c => c.DestinationCategory.ToString() == recommendationFiltersDTO.DestinationCategory));
+            }
+            return predicates;
+        }
+        
     }
 
 
