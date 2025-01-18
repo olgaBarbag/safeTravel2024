@@ -11,6 +11,7 @@ namespace SafeTravelApp.Services
         Task<Recommendation?> UpdateRecommendationAsync(int userId, int recommendationId, RecommendationUpdateDTO updateDTO);
         Task DeleteRecommendationAsync(int id);
 
+        Task<Recommendation?> GetRecommendationByIdAsync(int id);
         Task<List<DestinationRecommendationReadOnlyDTO>> GetRecommendationsByContributorIdAsync(int contributorId);
         Task<List<DestinationRecommendationReadOnlyDTO>> GetRecommendationsByDestinationAsync(RecommendationFiltersDTO recommendationFiltersDTO);
 

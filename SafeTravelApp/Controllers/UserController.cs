@@ -30,6 +30,7 @@ namespace SafeTravelApp.Controllers
         [HttpPost]
         public async Task<ActionResult<UserReadOnlyDTO>> SignupUserAgentAsync(AgentSignUpDTO? agentSignUpDTO)
         {
+            //validation
             if (!ModelState.IsValid)
             {
                 // If the model state is not valid, build a custom response
@@ -188,11 +189,11 @@ namespace SafeTravelApp.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            //var userId = AppUser!.Id;
-            //if (id != userId)
-            //{
-            //    throw new EntityForbiddenException("User", "ForbiddenAccess");
-            //}
+            var userId = AppUser!.Id;
+            if (id != userId)
+            {
+                throw new EntityForbiddenException("User", "ForbiddenAccess");
+            }
 
             await _applicationService.UserService.DeleteUserAsync(id);
             

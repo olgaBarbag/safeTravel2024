@@ -140,6 +140,11 @@ namespace SafeTravelApp.Services
             throw new NotImplementedException();
         }
 
+        public Task<Recommendation?> GetRecommendationByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
 
         //private async Task<User?> GetUserAsync()
         //{
