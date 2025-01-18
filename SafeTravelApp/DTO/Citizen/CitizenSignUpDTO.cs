@@ -32,7 +32,7 @@ namespace SafeTravelApp.DTO.Citizen
         [Required(ErrorMessage = "The {0} field is required.")]
         [EnumDataType(typeof(UserRole), ErrorMessage = "Invalid user role.")]
         public UserRole? UserRole { get; set; }
-
+   //--------------------------------------------------------------------------------------------------------------
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(15, ErrorMessage = "Phone number should not exceed 15 characters.")]
         [Phone(ErrorMessage = "Invalid phone number.")]
@@ -53,7 +53,7 @@ namespace SafeTravelApp.DTO.Citizen
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(6, ErrorMessage = "PostalCode should not exceed 6 characters.")]
         public string? PostalCode { get; set; }
-
+    //--------------------------------------------------------------------------------------------------------------
         [DataType(DataType.Date)]
         public DateTime? BirthDate { get; set; }
 

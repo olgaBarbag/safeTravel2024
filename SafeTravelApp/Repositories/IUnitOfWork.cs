@@ -4,6 +4,8 @@
     {
         UserRepository UserRepository { get; }
         AgentRepository AgentRepository { get; }
+        LanguageRepository LanguageRepository { get; }
+        CertificationRepository CertificationRepository { get; }
         CitizenRepository CitizenRepository { get; }
         DestinationRepository DestinationRepository { get; }
         CitizenDestinationRepository CitizenDestinationRepository { get; }

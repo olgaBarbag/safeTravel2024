@@ -44,7 +44,7 @@ namespace SafeTravelApp.Repositories
 
         public virtual async Task<T?> GetByIdAsync(TKey id) => await dbSet.FindAsync(id);
 
-        public virtual async Task<IEnumerable<T>> GetAllAsync() => await dbSet.ToListAsync();
+        public virtual async Task<IEnumerable<T>?> GetAllAsync() => await dbSet.ToListAsync();
            
         public virtual async Task<IEnumerable<T>?> FindFilteredAsync(List<Func<T, bool>> predicates)
         {

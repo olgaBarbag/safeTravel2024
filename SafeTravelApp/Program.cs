@@ -7,7 +7,11 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using SafeTravelApp.Configuration;
 using SafeTravelApp.Data;
+using SafeTravelApp.Helpers;
+using SafeTravelApp.Repositories;
+using SafeTravelApp.Services;
 using Serilog;
 using System.Text;
 
@@ -26,17 +30,17 @@ namespace SafeTravelApp
             var connString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<SafeTravelAppDbContext>(options => options.UseSqlServer(connString));
 
-          //  builder.Services.AddScoped<IApplicationService, ApplicationService>();
-          //  builder.Services.AddRepositories();
+            builder.Services.AddScoped<IApplicationService, ApplicationService>();
+            builder.Services.AddRepositories();
 
-          //  builder.Services.AddScoped(provider =>
-          //    new MapperConfiguration(cfg =>
-          //    {
-          //        cfg.AddProfile(new MapperConfig());
-          //    })
-          //.CreateMapper());
+            builder.Services.AddScoped(provider =>
+              new MapperConfiguration(cfg =>
+              {
+                  cfg.AddProfile(new MapperConfig());
+              })
+          .CreateMapper());
 
-            ///Add Authentication
+            //Add Authentication
             //builder.Services.AddAuthentication(options =>
             //{
             //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -74,10 +78,10 @@ namespace SafeTravelApp
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = false,
-                    ValidIssuer = "https://codingfactory.aueb.gr",
+                    ValidIssuer = "https://localhost:5000",
 
                     ValidateAudience = false,
-                    ValidAudience = "https://api.codingfactory.aueb.gr",
+                    ValidAudience = "https://localhost:4200",
 
                     ValidateLifetime = true, // ensure not expired
 
@@ -141,7 +145,7 @@ namespace SafeTravelApp
                 options.SupportNonNullableReferenceTypes();
                 //extra config for authorization comments
                 //Not only what but also who can do AND if can not what error receives
-               // options.OperationFilter<AuthorizeOperationFilter>();
+                options.OperationFilter<AuthorizeOperationFilter>();
                 options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme,
                     new OpenApiSecurityScheme
                     {
@@ -172,7 +176,7 @@ namespace SafeTravelApp
             app.UseAuthorization();
 
             //app.UseExceptionHandler();
-           // app.UseMiddleware<ErrorHandlerMiddleware>();
+            app.UseMiddleware<ErrorHandlerMiddleware>();
             app.MapControllers();
 
             app.Run(); ;

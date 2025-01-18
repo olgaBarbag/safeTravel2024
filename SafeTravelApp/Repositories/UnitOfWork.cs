@@ -24,6 +24,10 @@ namespace SafeTravelApp.Repositories
 
         public RecommendationRepository RecommendationRepository => new(_context);
 
+        public LanguageRepository LanguageRepository => new(_context);
+
+        public CertificationRepository CertificationRepository => new(_context);
+
         public async Task<bool> SaveAsync()
         {
             return await _context.SaveChangesAsync() > 0;

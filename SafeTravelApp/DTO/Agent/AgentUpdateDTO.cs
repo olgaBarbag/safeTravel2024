@@ -28,7 +28,7 @@ namespace SafeTravelApp.DTO.Agent
         [Editable(false)]
         [EnumDataType(typeof(UserRole), ErrorMessage = "Invalid user role.")]
         public UserRole? UserRole { get; set; }
-
+    //--------------------------------------------------------------------------------------------------------------
         [StringLength(15, ErrorMessage = "Phone number should not exceed 15 characters.")]
         [Phone(ErrorMessage = "Invalid phone number.")]
         public string? PhoneNumber { get; set; }
@@ -44,7 +44,7 @@ namespace SafeTravelApp.DTO.Agent
 
         [StringLength(6, ErrorMessage = "PostalCode should not exceed 6 characters.")]
         public string? PostalCode { get; set; }
-
+    //--------------------------------------------------------------------------------------------------------------
         [StringLength(100, ErrorMessage = "Company name should not exceed 100 characters.")]
         public string? CompanyName { get; set; }
 

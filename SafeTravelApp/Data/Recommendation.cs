@@ -6,7 +6,7 @@ namespace SafeTravelApp.Data
     {
         public int Id { get; set; }
         public string Title { get; set; } = null!;
-        public string? Description { get; init; }
+        public string? Description { get; set; }
         public ContributorRole? ContributorRole { get; set; }
         public int ContributorId { get; set; } //userId
         public int CategoryId { get; set; }

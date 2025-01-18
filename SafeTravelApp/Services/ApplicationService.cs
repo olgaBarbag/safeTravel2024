@@ -15,10 +15,14 @@ namespace SafeTravelApp.Services
             _mapper = mapper;
         }
 
-        public UserService UserService => throw new NotImplementedException();
+        public UserService UserService => new(_unitOfWork, _mapper);
 
-        public AgentService AgentService => throw new NotImplementedException();
+        public AgentService AgentService => new(_unitOfWork, _mapper);
 
-        public CitizenService CitizenService => throw new NotImplementedException();
+        public CitizenService CitizenService => new(_unitOfWork, _mapper);
+
+        public DestinationService DestinationService => new(_unitOfWork, _mapper);
+
+        public RecommendationService RecommendationService => new(_unitOfWork, _mapper);
     }
 }

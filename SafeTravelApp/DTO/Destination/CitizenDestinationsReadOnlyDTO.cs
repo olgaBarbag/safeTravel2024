@@ -2,12 +2,12 @@
 
 namespace SafeTravelApp.DTO.Destination
 {
-    public class DestinationReadOnlyDTO
+    public class CitizenDestinationsReadOnlyDTO
     {
-        public int Id { get; set; }
         public string? Country { get; set; } 
         public string? City { get; set; }
         public string? Region { get; set; }
-        public DestinationType Type { get; set; }
+        public DestinationType? Type { get; set; }
+        public CitizenRole? CitizenRole { get; set; }
     }
 }

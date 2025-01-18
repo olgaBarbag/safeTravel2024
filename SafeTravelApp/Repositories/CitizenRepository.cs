@@ -2,6 +2,7 @@
 using SafeTravelApp.Core.Enums;
 using SafeTravelApp.Data;
 using SafeTravelApp.Models;
+using System.Linq;
 
 namespace SafeTravelApp.Repositories
 {
@@ -27,61 +28,32 @@ namespace SafeTravelApp.Repositories
             return await query.ToListAsync();
         }
 
-        public async Task<List<CitizenDestination>> GetCitzenDestinationsFilteredAsync(int id, List<Func<CitizenDestination, bool>> predicates)
-        {
-            IQueryable<CitizenDestination> query = context.Citizens!
-                .Where(c => c.Id == id)
-                .SelectMany(c => c.CitizenDestinations!);
-
-            if (predicates != null && predicates.Any())
-            {
-                query = query.Where(u => predicates.All(predicate => predicate(u)));
-            }
-
-            return await query.ToListAsync();
-        }
-
         //--------------------------------------------------------------------------------------------------------------------------------------
 
-        public async Task<List<Citizen>> GetCitizensUserFilteredAsync(List<Func<User, bool>> predicates)
+        public async Task<List<Citizen>?> GetUserCitizensFilteredAsync(List<Func<User, bool>> predicates)
         {
             IQueryable<Citizen> query = context.Citizens!
-                .Include(a => a.User)
-                .Where(a => a.User.UserRole == UserRole.Citizen);
+                .Include(c => c.User)
+                .Where(c => c.User.UserRole == UserRole.Citizen);
 
 
             if (predicates != null && predicates.Any())
             {
-                query = query.Where(a => predicates.All(predicate => predicate(a.User)));
+                query = query.Where(c => predicates.All(predicate => predicate(c.User)));
             }
 
             return await query.ToListAsync();
         }
 
-        public async Task<List<Citizen>> GetCitizensDestinationFilteredAsync(List<Func<Destination, bool>> predicates)
+        public async Task<List<Citizen>?> GetCitizensDestinationFilteredAsync(int id, List<Func<Citizen, bool>> predicates)
         {
-            IQueryable<Citizen> query = context.Citizens!
-                .Include(a => a.Destinations);
+            IQueryable<Citizen> query = context.Destinations!
+                .Where(d => d.Id == id)
+                .SelectMany(d => d.Citizens!);
               
             if (predicates != null && predicates.Any())
             {
-                query = query.Where(a => a.Destinations!.Any(d => predicates.All(predicate => predicate(d))));
-            }
-
-            return await query.ToListAsync();
-        }
-
-        public async Task<List<Citizen>> GetCitizensDestinationFilteredByCitizenRoleAsync(CitizenRole citizenRole, List<Func<Destination, bool>> predicates)
-        {
-            IQueryable<Citizen> query = context.Citizens!
-                .Include(a => a.Destinations)
-                .Include(a => a.CitizenDestinations)
-                .Where(c => c.CitizenDestinations!.Any(cd => cd.CitizenRole == citizenRole));
-
-
-            if (predicates != null && predicates.Any())
-            {
-                query = query.Where(a => a.Destinations!.Any(d => predicates.All(predicate => predicate(d))));
+                query = query.Where(u => predicates.All(predicate => predicate(u)));
             }
 
             return await query.ToListAsync();
@@ -95,6 +67,14 @@ namespace SafeTravelApp.Repositories
              .Include(u => u.Details)
              .Include(u => u.Citizen)
              .FirstOrDefaultAsync(u => u.UserRole == UserRole.Citizen && u.Username == username || u.Email == username);
+        }
+
+        public async Task<User?> GetUserCitizenByPhoneNumberAsync(string phoneNumber)
+        {
+            return await context.Users!
+             .Include(u => u.Details)
+             .Include(u => u.Citizen)
+             .FirstOrDefaultAsync(u => u.UserRole == UserRole.Citizen && u.Details.PhoneNumber == phoneNumber);
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------------

@@ -8,16 +8,15 @@ namespace SafeTravelApp.Repositories
     {
         //Task<List<Destination>> GetAgentDestinationsAsync(int id);
         Task<List<Destination>> GetCitizenDestinationsFilteredAsync(int id, List<Func<Destination, bool>> predicates);
-        Task<List<CitizenDestination>> GetCitzenDestinationsFilteredAsync(int id, List<Func<CitizenDestination, bool>> predicates);
+                            
+        Task<List<Citizen>?> GetCitizensDestinationFilteredAsync(int id, List<Func<Citizen, bool>> predicates); 
         
-        Task<List<Citizen>> GetCitizensUserFilteredAsync(List<Func<User, bool>> predicates);               //CitizenFiltersDTO
-        Task<List<Citizen>> GetCitizensDestinationFilteredAsync(List<Func<Destination, bool>> predicates); //CitizenDestinationFiltersDTO
-        Task<List<Citizen>> GetCitizensDestinationFilteredByCitizenRoleAsync(CitizenRole citizenRole, List<Func<Destination, bool>> predicates);
+        Task<User?> GetUserCitizenByUsernameAsync(string username);                                      
+        Task<User?> GetUserCitizenByPhoneNumberAsync(string phoneNumber);
 
-        Task<User?> GetUserCitizenByUsernameAsync(string username);                                      //CitizenFiltersDTO
-
-        Task<List<User>?> GetAllUsersCitizensAsync();                                                     //CitizenFiltersDTO
-        Task<List<User>?> GetAllUsersCitizensPaginatedAsync(int pageNumber, int pageSize);                //CitizenFiltersDTO
+        Task<List<Citizen>?> GetUserCitizensFilteredAsync(List<Func<User, bool>> predicates);
+        Task<List<User>?> GetAllUsersCitizensAsync();                                                     
+        Task<List<User>?> GetAllUsersCitizensPaginatedAsync(int pageNumber, int pageSize);                
         Task<PaginatedResult<User>> GetUsersCitizensPagedFilteredAsync(int pageNumber, int pageSize,
             List<Func<User, bool>> predicates);
     }

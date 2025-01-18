@@ -17,6 +17,6 @@ namespace SafeTravelApp.DTO.Destination
 
         [Required(ErrorMessage = "The {0} field is required.")]
         [EnumDataType(typeof(DestinationType), ErrorMessage = "Invalid destination type.")]
-        public DestinationType Type { get; set; }
+        public DestinationType? Type { get; set; }
     }
 }

@@ -41,53 +41,34 @@ namespace SafeTravelApp.Repositories
 
             return await query.ToListAsync();
         }
-
-        public async Task SetContributorRoleAsync(int recommendationId, int contributorId)
+                
+        public async Task<ContributorRole> GetContributorRole(User user, Destination destination)
         {
-            
-            var recommendation = await context.Recommendations!
-                .FirstOrDefaultAsync(r => r.Id == recommendationId);
+            switch (user.UserRole)
+            {
+                case UserRole.Agent:
+                    return ContributorRole.Agent;
 
-            if (recommendation == null)
-            {
-                throw new Exception("Recommendation not found.");
-            }
-                      
-            var user = await context.Users!
-                .FirstOrDefaultAsync(u => u.Id == contributorId);
+                case UserRole.Citizen:
 
-            if (user == null)
-            {
-                throw new Exception("User not found.");
-            }
-                        
-            if (user.UserRole == UserRole.Agent)
-            {
-                recommendation.ContributorRole = ContributorRole.Agent;
-            }
-            else if (user.UserRole == UserRole.Citizen)
-            {
-                var userDetails = await context.Details!
-                    .FirstOrDefaultAsync(ud => ud.UserId == user.Id);
+                    bool isLocal = destination.Country == user.Details.Country && destination.City == user.Details.City;
+                    return isLocal ? ContributorRole.Local : ContributorRole.Visitor;
 
-                if (userDetails != null && recommendation.Destination != null)
-                {
-                    
-                    if (userDetails.Country == recommendation.Destination.Country &&
-                        userDetails.City == recommendation.Destination.City)
-                    {
-                        
-                        recommendation.ContributorRole = ContributorRole.Local;
-                    }
-                    else
-                    {
-                        
-                        recommendation.ContributorRole = ContributorRole.Visitor;
-                    }
-                }
+
+                default:
+                    return ContributorRole.Visitor;
             }
-            
-            await context.SaveChangesAsync();
+        }
+
+        public async Task<Recommendation?> UpdateRecommendationAsync(int userId, Recommendation recommendation)
+        {
+            var existingRecommendation = await context.Recommendations!.FirstOrDefaultAsync(u => u.Id == recommendation.Id);
+            if (existingRecommendation is null) return null;
+            if (existingRecommendation.ContributorId != userId) return null;  //ωστε να μην παει να τροποποιησει καποιος αλλον χρηστη
+
+            context.Recommendations!.Attach(recommendation);
+            context.Entry(recommendation).State = EntityState.Modified;
+            return existingRecommendation;
         }
     }
 }

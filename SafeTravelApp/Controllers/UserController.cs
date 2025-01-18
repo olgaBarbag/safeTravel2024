@@ -11,6 +11,8 @@ using SafeTravelApp.DTO.Citizen;
 
 namespace SafeTravelApp.Controllers
 {
+    [ApiController]
+    [Route("api/users")]
     public class UserController : BaseController
     {
         private readonly IConfiguration _configuration;
@@ -24,6 +26,7 @@ namespace SafeTravelApp.Controllers
             _mapper = mapper;
         }
 
+        [Route("agent-registration")]
         [HttpPost]
         public async Task<ActionResult<UserReadOnlyDTO>> SignupUserAgentAsync(AgentSignUpDTO? agentSignUpDTO)
         {
@@ -59,6 +62,7 @@ namespace SafeTravelApp.Controllers
             return CreatedAtAction(nameof(GetUserById), new { id = returnedUserDTO.Id }, returnedUserDTO);
         }
 
+        [Route("citizen-registration")]
         [HttpPost]
         public async Task<ActionResult<UserReadOnlyDTO>> SignupUserCitizenAsync(CitizenSignUpDTO? citizenSignUpDTO)
         {
@@ -93,6 +97,8 @@ namespace SafeTravelApp.Controllers
             //var returnedUserDTO = _mapper.Map<UserReadOnlyDTO>(returnedUser);
             return CreatedAtAction(nameof(GetUserById), new { id = returnedUserDTO.Id }, returnedUserDTO);
         }
+
+        // GET: api/users/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<UserReadOnlyDTO>> GetUserById(int id)
         {
@@ -101,7 +107,8 @@ namespace SafeTravelApp.Controllers
             return Ok(returnedDto);
         }
 
-        [HttpGet("{username}")]
+        // GET: api/users/agent/{username}
+        [HttpGet("agent/{username}")]
         public async Task<ActionResult<AgentReadOnlyDTO>> GetUserAgentByUsername(string? username)
         {
             var returnedUserAgentDTO = await _applicationService.AgentService.GetAgentByUsernameAsync(username!)
@@ -109,6 +116,8 @@ namespace SafeTravelApp.Controllers
             return Ok(returnedUserAgentDTO);
         }
 
+        // GET: api/users/citizen/{username}
+        [HttpGet("citizen/{username}")]
         public async Task<ActionResult<AgentReadOnlyDTO>> GetUserCitizenByUsername(string? username)
         {
             var returnedUserCitizenDTO = await _applicationService.CitizenService.GetCitizenByUsernameAsync(username!)
@@ -116,7 +125,8 @@ namespace SafeTravelApp.Controllers
             return Ok(returnedUserCitizenDTO);
         }
 
-        [HttpPost]
+        // POST: api/users/login
+        [HttpPost("login")]
         public async Task<ActionResult<JwtTokenDTO>> LoginUserAsync(UserLoginDTO credentials)
         {
             var user = await _applicationService.UserService.VerifyAndGetUserAsync(credentials);
@@ -125,14 +135,15 @@ namespace SafeTravelApp.Controllers
                 throw new EntityNotAuthorizedException("User", "BadCredentials");
             }
 
-            var userToken = _applicationService.UserService.CreateUserToken(user.Id, user.Username!, user.Email!,
-                user.UserRole, _configuration["Authentication:SecretKey"]!);
+            //_configuration["Authentication:SecretKey"]: signature/ not encrypted claims
+            var userToken = _applicationService.UserService
+                .CreateUserToken(user.Id, user.Username!, user.Email!, user.UserRole, _configuration["Authentication:SecretKey"]!);
 
             JwtTokenDTO token = new()
             {
                 Token = userToken
             };
-
+            //returns JWT token in json format
             return Ok(token);
         }
 
@@ -151,26 +162,28 @@ namespace SafeTravelApp.Controllers
         //    return Ok(userDTO);
         //}
 
-        [HttpPut]
+        // PUT: api/users/{id}
+        [HttpPut("{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<UserDTO>> UpdateUserAccount(int id, UserDTO? userDTO)
+        public async Task<ActionResult<UserDTO>> UpdateUserAccount(int id, UserUpdateDTO? userUpdateDTO)
         {
             var userId = AppUser!.Id;
             if (id != userId)
             {
                 throw new EntityNotAuthorizedException("User", "ForbiddenAccess");
             }
-            User user = _mapper.Map<User>(userDTO);
-            User? returnedUser = await _applicationService.UserService.GetUserByUsernameAsync(userDTO!.Username!);
+            User user = _mapper.Map<User>(userUpdateDTO);
+            User? returnedUser = await _applicationService.UserService.GetUserByUsernameAsync(userUpdateDTO!.Username!);
             if (returnedUser is null)
             {
                 throw new EntityNotFoundException("User", "User: " + user.Username + " not found");
             }
-            await _applicationService.UserService.UpdateUserAsync(id, userDTO);
+            await _applicationService.UserService.UpdateUserAsync(id, userUpdateDTO);
             var returnedUserDTO = _mapper.Map<UserDTO>(user);
             return Ok(returnedUserDTO);
         }
 
+        // DELETE: api/users/{id}
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser(int id)
@@ -181,8 +194,8 @@ namespace SafeTravelApp.Controllers
             //    throw new EntityForbiddenException("User", "ForbiddenAccess");
             //}
 
-            //await _applicationService.UserService.DeleteUserAsync(userId);
             await _applicationService.UserService.DeleteUserAsync(id);
+            
             return NoContent();
         }
     }

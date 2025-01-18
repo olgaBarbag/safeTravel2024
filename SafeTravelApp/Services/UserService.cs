@@ -49,6 +49,8 @@ namespace SafeTravelApp.Services
             return user;
         }
 
+
+
         public async Task<User?> SignUpUserAsync(UserSignupDTO signupDTO)
         {
             User? user;
@@ -78,17 +80,18 @@ namespace SafeTravelApp.Services
             return user;
         }
 
-        public async Task<User?> UpdateUserAsync(int userId, UserDTO userDTO)
+        public async Task<User?> UpdateUserAsync(int userId, UserUpdateDTO userUpdateDTO)
         {
             User userToUpdate;
 
             try
             {
-                userToUpdate = _mapper!.Map<User>(userDTO);
+                userToUpdate = _mapper!.Map<User>(userUpdateDTO);
 
-                await _unitOfWork.UserRepository.UpdateUserAsync(userToUpdate.Id, userToUpdate);
+                //ο ελεγχος γινεται στο repo
+                await _unitOfWork.UserRepository.UpdateUserAsync(userId, userToUpdate);
                 await _unitOfWork.SaveAsync();
-                _logger!.LogInformation("{Message}", "User: " + userDTO.Username + " updated successfully");
+                _logger!.LogInformation("{Message}", "User: " + userUpdateDTO.Username + " updated successfully");
 
             }
             catch (Exception e)
@@ -111,7 +114,7 @@ namespace SafeTravelApp.Services
 
                 if (!deleted)
                 {
-                    throw new EntityNotFoundException("User", "User Not Deleted");
+                    throw new EntityNotFoundException("User", "User was not found");
                 }
 
                 await _unitOfWork.SaveAsync();
@@ -141,6 +144,25 @@ namespace SafeTravelApp.Services
             return user;
         }
 
+
+        public async Task<User?> GetUserByPhoneNumberAsync(string phoneNumber)
+        {
+            User? user = null; ;
+
+            try
+            {
+                user = await _unitOfWork.UserRepository.GetByPhoneNumberAsync(phoneNumber);
+                _logger!.LogInformation("{Message}", "User: " + phoneNumber + " was found successfully.");
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("{Message}{Excpetion}", e.Message, e.StackTrace);
+            }
+            return user;
+        }
+
+
+
         public async Task<User?> GetUserByIdAsync(int id)
         {
             User? user = null;
@@ -157,7 +179,7 @@ namespace SafeTravelApp.Services
             return user;
         }
 
-        public async Task<List<User>> GetAllUsersFiltered(int pageNumber, int pageSize,
+        public async Task<List<User>> GetAllUsersFilteredAsync(int pageNumber, int pageSize,
             UserFiltersDTO userFiltersDTO)
         {
             List<User> users;
@@ -184,6 +206,57 @@ namespace SafeTravelApp.Services
                 if (!string.IsNullOrEmpty(userFiltersDTO.UserRole))
                 {
                     predicates.Add(u => u.UserRole.ToString() == userFiltersDTO.UserRole);
+                }
+
+                users = await _unitOfWork.UserRepository
+                    .GetAllUsersFilteredPaginatedAsync(pageNumber, pageSize, predicates);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("{Message}{Exception}", e.Message, e.StackTrace);
+                throw;
+            }
+            return users;
+        }
+
+        public async Task<List<User>> GetAllUsersFiltered(int pageNumber, int pageSize, UserDetailsFiltersDTO userDetailsFiltersDTO)
+        {
+            List<User> users;
+            List<Func<User, bool>> predicates = new();
+
+            try
+            {
+                if (!string.IsNullOrEmpty(userDetailsFiltersDTO.Username))
+                {
+                    predicates.Add(u => u.Username == userDetailsFiltersDTO.Username);
+                }
+                if (!string.IsNullOrEmpty(userDetailsFiltersDTO.Email))
+                {
+                    predicates.Add(u => u.Email == userDetailsFiltersDTO.Email);
+                }
+                if (!string.IsNullOrEmpty(userDetailsFiltersDTO.Firstname))
+                {
+                    predicates.Add(u => u.Firstname == userDetailsFiltersDTO.Firstname);
+                }
+                if (!string.IsNullOrEmpty(userDetailsFiltersDTO.Lastname))
+                {
+                    predicates.Add(u => u.Lastname == userDetailsFiltersDTO.Lastname);
+                }
+                if (!string.IsNullOrEmpty(userDetailsFiltersDTO.UserRole))
+                {
+                    predicates.Add(u => u.UserRole.ToString() == userDetailsFiltersDTO.UserRole);
+                }
+                if (!string.IsNullOrEmpty(userDetailsFiltersDTO.PhoneNumber))
+                {
+                    predicates.Add(u => u.Details!.PhoneNumber == userDetailsFiltersDTO.PhoneNumber); 
+                }
+                if (!string.IsNullOrEmpty(userDetailsFiltersDTO.Address))
+                {
+                    predicates.Add(u => u.Details!.Address == userDetailsFiltersDTO.Address);
+                }
+                if (!string.IsNullOrEmpty(userDetailsFiltersDTO.City))
+                {
+                    predicates.Add(u => u.Details!.City == userDetailsFiltersDTO.City);
                 }
 
                 users = await _unitOfWork.UserRepository
@@ -224,5 +297,6 @@ namespace SafeTravelApp.Services
 
             return userToken;
         }
+       
     }
 }

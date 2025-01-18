@@ -1,6 +1,9 @@
-﻿using SafeTravelApp.Core.Filters;
+﻿using SafeTravelApp.Core.Enums;
+using SafeTravelApp.Core.Filters;
 using SafeTravelApp.Data;
 using SafeTravelApp.DTO.Agent;
+using SafeTravelApp.DTO.Citizen;
+using SafeTravelApp.DTO.Destination;
 using SafeTravelApp.DTO.User;
 
 namespace SafeTravelApp.Services
@@ -8,8 +11,20 @@ namespace SafeTravelApp.Services
     public interface IAgentService
     {
         Task<UserReadOnlyDTO> SignUpUserAsync(AgentSignUpDTO request);
-        Task<List<User>> GetAllUsersAgentsAsync();
-        Task<List<User>> GetAllUsersAgentsFilteredAsync(UserDetaisFiltersDTO userDetaisFiltersDTO);
+        Task<List<AgentReadOnlyDTO>> GetAllUsersAgentsAsync(int pageNumber, int pageSize);
+        Task<List<AgentReadOnlyDTO>> GetAllUsersAgentsFilteredAsync(AgentDetailsFiltersDTO agentDetailsFiltersDTO);
+
         Task<AgentReadOnlyDTO?> GetAgentByUsernameAsync(string username);
+        Task<AgentReadOnlyDTO?> GetAgentByIdAsync(int id);
+        Task<AgentReadOnlyDTO?> GetAgentByPhoneNumberAsync(string phoneNumber);
+
+        Task<List<Destination>> GetAllAgentDestinationsFilteredAsync(Agent agent, DestinationFiltersDTO destinationFiltersDTO); 
+        Task<List<AgentReadOnlyDTO>> GetAllDestinationAgentsFilteredAsync(Destination destination, AgentDetailsFiltersDTO agentDetailsFiltersDTO);
+
+        Task<List<Language>> GetAllAgentLanguagesFilteredAsync(Agent agent, LanguageFiltersDTO languageFiltersDTO);
+        Task<List<Certification>> GetAllAgentCertificationsAsync(Agent agent);
+
+        //Task<List<Recommendation>> GetAllAgentRecommendationsFilteredAsync(int id, Recommendation recommendation);
+
     }
 }
