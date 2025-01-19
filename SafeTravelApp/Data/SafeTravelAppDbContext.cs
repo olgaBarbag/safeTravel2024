@@ -34,12 +34,12 @@ namespace SafeTravelApp.Data
                 entity.Property(e => e.UserRole).HasConversion<string>().IsRequired().HasDefaultValue(UserRole.Citizen);
 
                 entity.Property(e => e.InsertedAt)
-                .ValueGeneratedOnAdd();
-                //.HasDefaultValueSql("GETDATE()");
+                .ValueGeneratedOnAdd()
+                .HasDefaultValueSql("GETDATE()");
 
                 entity.Property(e => e.ModifiedAt)
-                .ValueGeneratedOnAddOrUpdate();
-                //.HasDefaultValueSql("GETDATE()");
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("GETDATE()");
 
                 entity.HasIndex(e => e.Email, "IX_Users_Email").IsUnique();
                 entity.HasIndex(e => e.Username, "IX_Users_Username").IsUnique();
@@ -54,12 +54,12 @@ namespace SafeTravelApp.Data
                 entity.Property(e => e.PhoneNumber).HasMaxLength(10).IsRequired();
 
                 entity.Property(e => e.InsertedAt)
-               .ValueGeneratedOnAdd();
-                // .HasDefaultValueSql("GETDATE()");
+               .ValueGeneratedOnAdd()
+               .HasDefaultValueSql("GETDATE()");
 
                 entity.Property(e => e.ModifiedAt)
-                .ValueGeneratedOnAddOrUpdate();
-               // .HasDefaultValueSql("GETDATE()");
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("GETDATE()");
 
                 entity.HasIndex(e => e.PhoneNumber, "IX_Details_PhoneNumber").IsUnique();
                 entity.HasIndex(e => e.UserId, "IX_Details_UserId").IsUnique();
@@ -72,12 +72,12 @@ namespace SafeTravelApp.Data
                 entity.Property(e => e.VatNumber).HasMaxLength(10).IsRequired();
 
                 entity.Property(e => e.InsertedAt)
-               .ValueGeneratedOnAdd();
-                //.HasDefaultValueSql("GETDATE()");
+               .ValueGeneratedOnAdd()
+               .HasDefaultValueSql("GETDATE()");
 
                 entity.Property(e => e.ModifiedAt)
-                .ValueGeneratedOnAddOrUpdate();
-               // .HasDefaultValueSql("GETDATE()");
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("GETDATE()");
 
 
                 entity.HasIndex(e => e.CompanyName, "IX_Agents_CompanyName");
@@ -128,12 +128,12 @@ namespace SafeTravelApp.Data
                 entity.Property(e => e.Gender).HasConversion<string>().HasDefaultValue(Gender.None);
 
                 entity.Property(e => e.InsertedAt)
-               .ValueGeneratedOnAdd();
-               //.HasDefaultValueSql("GETDATE()");
+               .ValueGeneratedOnAdd()
+               .HasDefaultValueSql("GETDATE()");
 
                 entity.Property(e => e.ModifiedAt)
-                .ValueGeneratedOnAddOrUpdate();
-                //.HasDefaultValueSql("GETDATE()");
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("GETDATE()");
 
                 entity.HasIndex(e => e.UserId, "IX_Citizens_UserId").IsUnique();
             });
@@ -145,12 +145,12 @@ namespace SafeTravelApp.Data
                 entity.Property(e => e.CitizenRole).HasConversion<string>().IsRequired().HasDefaultValue(CitizenRole.Local);
 
                 entity.Property(e => e.InsertedAt)
-               .ValueGeneratedOnAdd();
-                // .HasDefaultValueSql("GETDATE()");
+               .ValueGeneratedOnAdd()
+               .HasDefaultValueSql("GETDATE()");
 
                 entity.Property(e => e.ModifiedAt)
-                .ValueGeneratedOnAddOrUpdate();
-                // .HasDefaultValueSql("GETDATE()");
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("GETDATE()");
 
                 entity.HasKey(e => new { e.CitizenId, e.DestinationId });
 

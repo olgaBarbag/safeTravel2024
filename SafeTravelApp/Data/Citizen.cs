@@ -5,7 +5,7 @@ namespace SafeTravelApp.Data
     public class Citizen : BaseEntity
     {
         public int Id { get; set; }
-        public DateTime? BirthDate { get; set; } 
+        public DateOnly? BirthDate { get; set; } 
         public Gender? Gender { get; set; } 
         public string? Occupation { get; set; }
         public int UserId { get; set; }

@@ -26,7 +26,7 @@ namespace SafeTravelApp.Controllers
             _mapper = mapper;
         }
 
-        [Route("agent-registration")]
+        [Route("agent/registration")]
         [HttpPost]
         public async Task<ActionResult<UserReadOnlyDTO>> SignupUserAgentAsync(AgentSignUpDTO? agentSignUpDTO)
         {
@@ -63,7 +63,7 @@ namespace SafeTravelApp.Controllers
             return CreatedAtAction(nameof(GetUserById), new { id = returnedUserDTO.Id }, returnedUserDTO);
         }
 
-        [Route("citizen-registration")]
+        [Route("citizen/registration")]
         [HttpPost]
         public async Task<ActionResult<UserReadOnlyDTO>> SignupUserCitizenAsync(CitizenSignUpDTO? citizenSignUpDTO)
         {

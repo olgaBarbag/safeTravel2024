@@ -60,7 +60,6 @@ namespace SafeTravelApp.DTO.Agent
 
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(10, ErrorMessage = "Vat Number should not exceed 10 characters.")]
-        [Phone(ErrorMessage = "Invalid phone number.")]
         public string? VatNumber { get; set; }
 
     }

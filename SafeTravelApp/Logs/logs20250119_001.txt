@@ -1,0 +1,862 @@
+[19-01-2025 19:27:48615 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+[19-01-2025 19:27:48640 +02:00 Microsoft.EntityFrameworkCore.Migrations ] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+[19-01-2025 19:27:48750 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("108"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result"
+[19-01-2025 19:27:48790 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;"
+[19-01-2025 19:27:48797 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+[19-01-2025 19:27:48798 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+[19-01-2025 19:27:48840 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("40"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];"
+[19-01-2025 19:27:48848 +02:00 Microsoft.EntityFrameworkCore.Migrations ] Applying migration '"20250119172629_dbContext Modified"'.
+[19-01-2025 19:27:48981 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("112"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'ModifiedAt');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [Users] ADD DEFAULT (GETDATE()) FOR [ModifiedAt];"
+[19-01-2025 19:27:49024 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("43"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @var1 sysname;
+SELECT @var1 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'InsertedAt');
+IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var1 + '];');
+ALTER TABLE [Users] ADD DEFAULT (GETDATE()) FOR [InsertedAt];"
+[19-01-2025 19:27:49057 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("33"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @var2 sysname;
+SELECT @var2 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Details]') AND [c].[name] = N'ModifiedAt');
+IF @var2 IS NOT NULL EXEC(N'ALTER TABLE [Details] DROP CONSTRAINT [' + @var2 + '];');
+ALTER TABLE [Details] ADD DEFAULT (GETDATE()) FOR [ModifiedAt];"
+[19-01-2025 19:27:49089 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("32"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @var3 sysname;
+SELECT @var3 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Details]') AND [c].[name] = N'InsertedAt');
+IF @var3 IS NOT NULL EXEC(N'ALTER TABLE [Details] DROP CONSTRAINT [' + @var3 + '];');
+ALTER TABLE [Details] ADD DEFAULT (GETDATE()) FOR [InsertedAt];"
+[19-01-2025 19:27:49115 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("25"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @var4 sysname;
+SELECT @var4 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Citizens]') AND [c].[name] = N'ModifiedAt');
+IF @var4 IS NOT NULL EXEC(N'ALTER TABLE [Citizens] DROP CONSTRAINT [' + @var4 + '];');
+ALTER TABLE [Citizens] ADD DEFAULT (GETDATE()) FOR [ModifiedAt];"
+[19-01-2025 19:27:49134 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @var5 sysname;
+SELECT @var5 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Citizens]') AND [c].[name] = N'InsertedAt');
+IF @var5 IS NOT NULL EXEC(N'ALTER TABLE [Citizens] DROP CONSTRAINT [' + @var5 + '];');
+ALTER TABLE [Citizens] ADD DEFAULT (GETDATE()) FOR [InsertedAt];"
+[19-01-2025 19:27:49162 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("27"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @var6 sysname;
+SELECT @var6 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[CitizenDestinations]') AND [c].[name] = N'ModifiedAt');
+IF @var6 IS NOT NULL EXEC(N'ALTER TABLE [CitizenDestinations] DROP CONSTRAINT [' + @var6 + '];');
+ALTER TABLE [CitizenDestinations] ADD DEFAULT (GETDATE()) FOR [ModifiedAt];"
+[19-01-2025 19:27:49185 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("23"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @var7 sysname;
+SELECT @var7 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[CitizenDestinations]') AND [c].[name] = N'InsertedAt');
+IF @var7 IS NOT NULL EXEC(N'ALTER TABLE [CitizenDestinations] DROP CONSTRAINT [' + @var7 + '];');
+ALTER TABLE [CitizenDestinations] ADD DEFAULT (GETDATE()) FOR [InsertedAt];"
+[19-01-2025 19:27:49475 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("27"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @var8 sysname;
+SELECT @var8 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Agents]') AND [c].[name] = N'ModifiedAt');
+IF @var8 IS NOT NULL EXEC(N'ALTER TABLE [Agents] DROP CONSTRAINT [' + @var8 + '];');
+ALTER TABLE [Agents] ADD DEFAULT (GETDATE()) FOR [ModifiedAt];"
+[19-01-2025 19:27:49505 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("30"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @var9 sysname;
+SELECT @var9 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Agents]') AND [c].[name] = N'InsertedAt');
+IF @var9 IS NOT NULL EXEC(N'ALTER TABLE [Agents] DROP CONSTRAINT [' + @var9 + '];');
+ALTER TABLE [Agents] ADD DEFAULT (GETDATE()) FOR [InsertedAt];"
+[19-01-2025 19:27:49508 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250119172629_dbContext Modified', N'9.0.0');"
+[19-01-2025 19:27:49549 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result"
+[19-01-2025 19:34:26448 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[19-01-2025 19:34:26595 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[19-01-2025 19:34:26627 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[19-01-2025 19:34:26697 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[19-01-2025 19:34:26698 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[19-01-2025 19:34:26699 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[19-01-2025 19:34:26946 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[19-01-2025 19:34:27115 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 168.6855ms
+[19-01-2025 19:34:27125 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[19-01-2025 19:34:27134 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 9.2477ms
+[19-01-2025 19:34:27276 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[19-01-2025 19:34:27311 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 35.3746ms
+[19-01-2025 19:34:27608 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[19-01-2025 19:34:27620 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 11.8828ms
+[19-01-2025 19:34:58786 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 338
+[19-01-2025 19:34:58796 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 19:35:04302 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 19:35:04513 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 19:35:10762 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("166"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 19:35:10777 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi was found successfully."
+[19-01-2025 19:35:10924 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("110"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 19:35:11517 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("4"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[19-01-2025 19:35:12454 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("139"ms) [Parameters=["@p6='?' (Size = 450), @p7='?' (DbType = Int32), @p8='?' (Size = 10)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Agents] ([CompanyName], [UserId], [VatNumber])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);"
+[19-01-2025 19:35:12773 +02:00 Microsoft.EntityFrameworkCore.Update ] An exception occurred in the database while saving changes for context type '"SafeTravelApp.Data.SafeTravelAppDbContext"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Agents' with unique index 'IX_Agents_VatNumber'. The duplicate key value is (1234567890).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:4c59b822-1521-41f4-835a-485b248f8379
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Agents' with unique index 'IX_Agents_VatNumber'. The duplicate key value is (1234567890).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:4c59b822-1521-41f4-835a-485b248f8379
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[19-01-2025 19:35:12777 +02:00 SafeTravelApp.Services.AgentService ] "An error occurred while saving the entity changes. See the inner exception for details.""   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at SafeTravelApp.Repositories.UnitOfWork.SaveAsync() in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Repositories\UnitOfWork.cs:line 33
+   at SafeTravelApp.Services.AgentService.SignUpUserAsync(AgentSignUpDTO request) in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Services\AgentService.cs:line 52"
+[19-01-2025 19:35:12780 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 7943.7352ms
+[19-01-2025 19:35:12781 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 19:35:12790 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 500 null "application/json" 14004.8898ms
+[19-01-2025 19:39:08437 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[19-01-2025 19:39:08448 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 11.1291ms
+[19-01-2025 19:39:08663 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[19-01-2025 19:39:08666 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[19-01-2025 19:39:08679 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 15.5786ms
+[19-01-2025 19:39:08694 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 27.9595ms
+[19-01-2025 19:39:08986 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[19-01-2025 19:39:09002 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 15.3065ms
+[19-01-2025 19:40:02974 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 338
+[19-01-2025 19:40:02979 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 19:40:02982 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 19:40:02983 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 19:40:03034 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("7"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 19:40:03039 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi was found successfully."
+[19-01-2025 19:40:03045 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 19:40:03222 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("16"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[19-01-2025 19:40:03230 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("4"ms) [Parameters=["@p6='?' (Size = 450), @p7='?' (DbType = Int32), @p8='?' (Size = 10)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Agents] ([CompanyName], [UserId], [VatNumber])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);"
+[19-01-2025 19:40:03244 +02:00 SafeTravelApp.Services.AgentService ] "Agent: SafeTravelApp.Data.Agent signed up successfully."
+[19-01-2025 19:40:03249 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "CreatedAtActionResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[19-01-2025 19:40:03274 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 288.3556ms
+[19-01-2025 19:40:03277 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 19:40:03278 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 201 271 "application/json; charset=utf-8" 303.9666ms
+[19-01-2025 20:01:18654 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[19-01-2025 20:01:18672 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 18.8847ms
+[19-01-2025 20:01:19256 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[19-01-2025 20:01:19292 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 34.9901ms
+[19-01-2025 20:01:19792 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[19-01-2025 20:01:19845 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 52.5134ms
+[19-01-2025 20:01:20441 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[19-01-2025 20:01:20499 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 57.9624ms
+[19-01-2025 20:20:16281 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[19-01-2025 20:20:17177 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[19-01-2025 20:20:17186 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[19-01-2025 20:20:17422 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[19-01-2025 20:20:17427 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[19-01-2025 20:20:17433 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[19-01-2025 20:20:18847 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[19-01-2025 20:20:19481 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 633.094ms
+[19-01-2025 20:20:19728 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[19-01-2025 20:20:19744 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 16.232ms
+[19-01-2025 20:20:20036 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[19-01-2025 20:20:20190 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 153.2535ms
+[19-01-2025 20:20:20472 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[19-01-2025 20:20:20493 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 20.9553ms
+[19-01-2025 20:21:05759 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json-patch+json" 52
+[19-01-2025 20:21:05815 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 20:21:15704 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 20:21:15798 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 20:21:26743 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("413"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 20:21:28072 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi found and retrieved."
+[19-01-2025 20:21:28617 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 20:21:28679 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 12866.8315ms
+[19-01-2025 20:21:28685 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 20:21:28720 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 628 "application/json; charset=utf-8" 22961.2624ms
+[19-01-2025 20:31:46754 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - null null
+[19-01-2025 20:31:46769 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 20:31:46774 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - 204 null null 19.9692ms
+[19-01-2025 20:31:46789 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json" 54
+[19-01-2025 20:31:46835 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 20:31:46850 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 20:31:46866 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 20:31:46932 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[19-01-2025 20:31:46952 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 64.8708ms
+[19-01-2025 20:31:46954 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 20:31:46955 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 400 316 "application/problem+json; charset=utf-8" 166.6957ms
+[19-01-2025 20:33:27585 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - null null
+[19-01-2025 20:33:27595 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 20:33:27599 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - 204 null null 13.8077ms
+[19-01-2025 20:33:27604 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json" 43
+[19-01-2025 20:33:27624 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 20:33:27635 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 20:33:27639 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 20:33:27776 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("48"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 20:33:27932 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi found and retrieved."
+[19-01-2025 20:33:27937 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 20:33:27939 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 292.3511ms
+[19-01-2025 20:33:27943 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 20:33:27947 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 628 "application/json; charset=utf-8" 343.3946ms
+[19-01-2025 20:46:42786 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - null null
+[19-01-2025 20:46:42804 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 20:46:42811 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - 204 null null 25.1536ms
+[19-01-2025 20:46:42820 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json" 43
+[19-01-2025 20:46:42845 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 20:46:42850 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 20:46:42861 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 20:46:43011 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("18"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 20:46:43148 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi found and retrieved."
+[19-01-2025 20:46:43149 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 20:46:43151 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 281.1324ms
+[19-01-2025 20:46:43153 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 20:46:43154 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 628 "application/json; charset=utf-8" 333.7361ms
+[19-01-2025 20:51:55644 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - null null
+[19-01-2025 20:51:55649 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 20:51:55650 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - 204 null null 6.8833ms
+[19-01-2025 20:51:55654 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json" 43
+[19-01-2025 20:51:55661 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 20:51:55715 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 20:51:55717 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 20:51:55743 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("12"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 20:51:55926 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi found and retrieved."
+[19-01-2025 20:51:55928 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 20:51:55930 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 210.4944ms
+[19-01-2025 20:51:55932 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 20:51:55933 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 628 "application/json; charset=utf-8" 279.6442ms
+[19-01-2025 20:55:01408 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - null null
+[19-01-2025 20:55:01421 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 20:55:01426 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - 204 null null 17.6757ms
+[19-01-2025 20:55:01433 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json" 43
+[19-01-2025 20:55:01453 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 20:55:01462 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 20:55:01465 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 20:55:01490 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("11"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 20:55:01645 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi found and retrieved."
+[19-01-2025 20:55:01646 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 20:55:01647 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 178.7067ms
+[19-01-2025 20:55:01650 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 20:55:01652 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 628 "application/json; charset=utf-8" 219.4633ms
+[19-01-2025 21:12:20545 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - null null
+[19-01-2025 21:12:20559 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:12:20563 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - 204 null null 17.785ms
+[19-01-2025 21:12:20568 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json" 43
+[19-01-2025 21:12:20587 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:12:20590 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 21:12:20594 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 21:12:20695 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("39"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 21:12:20927 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi found and retrieved."
+[19-01-2025 21:12:20930 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 21:12:20933 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 331.9202ms
+[19-01-2025 21:12:20940 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 21:12:20942 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 628 "application/json; charset=utf-8" 374.5697ms
+[19-01-2025 21:15:36946 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - null null
+[19-01-2025 21:15:36960 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:15:36964 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - 204 null null 17.3736ms
+[19-01-2025 21:15:36968 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json" 43
+[19-01-2025 21:15:36979 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:15:36979 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 21:15:36981 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 21:15:37015 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("18"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 21:15:37344 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi found and retrieved."
+[19-01-2025 21:15:37346 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 21:15:37351 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 368.2686ms
+[19-01-2025 21:15:37357 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 21:15:37366 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 628 "application/json; charset=utf-8" 397.4582ms
+[19-01-2025 21:16:00271 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - null null
+[19-01-2025 21:16:00275 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:16:00277 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - 204 null null 5.1725ms
+[19-01-2025 21:16:00279 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json" 43
+[19-01-2025 21:16:00283 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:16:00285 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 21:16:00286 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 21:16:00301 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("7"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 21:16:00428 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi found and retrieved."
+[19-01-2025 21:16:00429 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 21:16:00432 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 143.7832ms
+[19-01-2025 21:16:00434 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 21:16:00436 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 628 "application/json; charset=utf-8" 157.496ms
+[19-01-2025 21:22:18070 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json-patch+json" 52
+[19-01-2025 21:22:18089 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:22:18093 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 21:22:18097 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 21:22:18213 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("50"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 21:22:18625 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi found and retrieved."
+[19-01-2025 21:22:18630 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 21:22:18642 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 534.9472ms
+[19-01-2025 21:22:18650 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 21:22:18657 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 628 "application/json; charset=utf-8" 587.8255ms
+[19-01-2025 21:24:06208 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - null null
+[19-01-2025 21:24:06224 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:24:06229 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - 204 null null 20.7324ms
+[19-01-2025 21:24:06241 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json" 43
+[19-01-2025 21:24:06277 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:24:06282 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 21:24:06289 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 21:24:06318 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("10"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 21:24:06442 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi found and retrieved."
+[19-01-2025 21:24:06444 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 21:24:06447 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 150.3131ms
+[19-01-2025 21:24:06449 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 21:24:06452 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 628 "application/json; charset=utf-8" 211.2061ms
+[19-01-2025 21:32:40176 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - null null
+[19-01-2025 21:32:40239 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:32:40255 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - 204 null null 78.943ms
+[19-01-2025 21:32:40272 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json" 43
+[19-01-2025 21:32:40361 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:32:40365 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 21:32:40369 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 21:32:40426 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("15"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 21:32:40639 +02:00 SafeTravelApp.Services.UserService ] "User: Olgi found and retrieved."
+[19-01-2025 21:32:40642 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 21:32:40646 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 270.62ms
+[19-01-2025 21:32:40648 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 21:32:40650 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 628 "application/json; charset=utf-8" 378.3937ms
+[19-01-2025 21:43:22729 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/citizen/registration""" - null null
+[19-01-2025 21:43:22740 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:43:22749 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/citizen/registration""" - 204 null null 19.2982ms
+[19-01-2025 21:43:22751 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/citizen/registration""" - "application/json" 290
+[19-01-2025 21:43:22760 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:43:22762 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)"'
+[19-01-2025 21:43:22775 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserCitizen\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserCitizenAsync(SafeTravelApp.DTO.Citizen.CitizenSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 21:43:22845 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("16"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 21:43:22849 +02:00 SafeTravelApp.Services.UserService ] "User: testcitizen was found successfully."
+[19-01-2025 21:43:22865 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 21:43:23367 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("22"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[19-01-2025 21:43:23417 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("25"ms) [Parameters=["@p6='?' (DbType = Date), @p7='?' (Size = 4000), @p8='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Citizens] ([BirthDate], [Occupation], [UserId])
+OUTPUT INSERTED.[Id], INSERTED.[Gender], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);"
+[19-01-2025 21:43:23537 +02:00 SafeTravelApp.Services.CitizenService ] "Citizen: SafeTravelApp.Data.Citizen signed up successfully."
+[19-01-2025 21:43:23567 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "CreatedAtActionResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[19-01-2025 21:43:23638 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)" in 860.0869ms
+[19-01-2025 21:43:23641 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)"'
+[19-01-2025 21:43:23643 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/citizen/registration""" - 201 281 "application/json; charset=utf-8" 891.865ms
+[19-01-2025 21:59:25853 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/citizen/registration""" - null null
+[19-01-2025 21:59:25859 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:59:25862 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/citizen/registration""" - 204 null null 8.3123ms
+[19-01-2025 21:59:25864 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/citizen/registration""" - "application/json" 278
+[19-01-2025 21:59:25873 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 21:59:25876 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)"'
+[19-01-2025 21:59:25879 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserCitizen\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserCitizenAsync(SafeTravelApp.DTO.Citizen.CitizenSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 21:59:25902 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[19-01-2025 21:59:25909 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)" in 24.5917ms
+[19-01-2025 21:59:25913 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)"'
+[19-01-2025 21:59:25917 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/citizen/registration""" - 400 254 "application/problem+json; charset=utf-8" 52.4841ms
+[19-01-2025 22:02:13906 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/citizen/registration""" - null null
+[19-01-2025 22:02:13909 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:02:13911 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/citizen/registration""" - 204 null null 3.9265ms
+[19-01-2025 22:02:13913 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/citizen/registration""" - "application/json" 283
+[19-01-2025 22:02:13920 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:02:13928 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)"'
+[19-01-2025 22:02:13965 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserCitizen\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserCitizenAsync(SafeTravelApp.DTO.Citizen.CitizenSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:02:14015 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("12"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 22:02:14018 +02:00 SafeTravelApp.Services.UserService ] "User: test123 was found successfully."
+[19-01-2025 22:02:14022 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 22:02:14170 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("8"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[19-01-2025 22:02:14185 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("10"ms) [Parameters=["@p6='?' (DbType = Date), @p7='?' (Size = 4000), @p8='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Citizens] ([BirthDate], [Occupation], [UserId])
+OUTPUT INSERTED.[Id], INSERTED.[Gender], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);"
+[19-01-2025 22:02:14202 +02:00 SafeTravelApp.Services.CitizenService ] "Citizen: SafeTravelApp.Data.Citizen signed up successfully."
+[19-01-2025 22:02:14217 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "CreatedAtActionResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[19-01-2025 22:02:14284 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)" in 314.1984ms
+[19-01-2025 22:02:14377 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)"'
+[19-01-2025 22:02:14380 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/citizen/registration""" - 201 279 "application/json; charset=utf-8" 467.7013ms
+[19-01-2025 22:15:05870 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[19-01-2025 22:15:05884 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:15:05886 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - 204 null null 15.7916ms
+[19-01-2025 22:15:05890 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json" 288
+[19-01-2025 22:15:05907 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:15:05909 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:15:05930 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:15:05960 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[19-01-2025 22:15:05962 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 23.4121ms
+[19-01-2025 22:15:05964 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:15:05965 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 263 "application/problem+json; charset=utf-8" 75.5276ms
+[19-01-2025 22:20:54508 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[19-01-2025 22:20:54522 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:20:54529 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - 204 null null 21.1563ms
+[19-01-2025 22:20:54533 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json" 292
+[19-01-2025 22:20:54552 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:20:54558 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:20:54564 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:20:54629 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[19-01-2025 22:20:54635 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 59.0232ms
+[19-01-2025 22:20:54640 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:20:54645 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 347 "application/problem+json; charset=utf-8" 112.5571ms
+[19-01-2025 22:21:58787 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[19-01-2025 22:21:58798 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:21:58806 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - 204 null null 19.1586ms
+[19-01-2025 22:21:58812 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json" 292
+[19-01-2025 22:21:58830 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:21:58831 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:21:58833 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:21:58847 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[19-01-2025 22:21:58850 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 10.9198ms
+[19-01-2025 22:21:58854 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:21:58857 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 347 "application/problem+json; charset=utf-8" 44.4125ms
+[19-01-2025 22:22:48497 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[19-01-2025 22:22:48508 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:22:48510 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - 204 null null 12.1829ms
+[19-01-2025 22:22:48515 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json" 292
+[19-01-2025 22:22:48540 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:22:48544 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:22:48548 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:22:48572 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[19-01-2025 22:22:48578 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 17.1575ms
+[19-01-2025 22:22:48581 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:22:48585 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 347 "application/problem+json; charset=utf-8" 69.9548ms
+[19-01-2025 22:23:09691 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[19-01-2025 22:23:09702 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:23:09707 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - 204 null null 15.9791ms
+[19-01-2025 22:23:09713 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json" 292
+[19-01-2025 22:23:09740 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:23:09744 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:23:09749 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:23:09788 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[19-01-2025 22:23:09798 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 38.7409ms
+[19-01-2025 22:23:09807 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:23:09812 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 347 "application/problem+json; charset=utf-8" 99.2671ms
+[19-01-2025 22:24:30602 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[19-01-2025 22:24:30605 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:24:30606 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - 204 null null 3.8202ms
+[19-01-2025 22:24:30610 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json" 292
+[19-01-2025 22:24:30621 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:24:30624 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:24:30629 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:24:30646 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[19-01-2025 22:24:30648 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 8.3525ms
+[19-01-2025 22:24:30649 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:24:30651 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 347 "application/problem+json; charset=utf-8" 41.1061ms
+[19-01-2025 22:28:18496 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[19-01-2025 22:28:18513 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:28:18525 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - 204 null null 28.442ms
+[19-01-2025 22:28:18531 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json" 292
+[19-01-2025 22:28:18569 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:28:18574 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:28:18577 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:28:18597 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[19-01-2025 22:28:18604 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 24.0703ms
+[19-01-2025 22:28:18611 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:28:18616 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 347 "application/problem+json; charset=utf-8" 85.255ms
+[19-01-2025 22:29:55016 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[19-01-2025 22:29:55029 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:29:55033 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - 204 null null 17.0663ms
+[19-01-2025 22:29:55040 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json" 292
+[19-01-2025 22:29:55052 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:29:55055 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:29:55059 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:29:55079 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[19-01-2025 22:29:55087 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 21.3789ms
+[19-01-2025 22:29:55101 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:29:55105 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 347 "application/problem+json; charset=utf-8" 64.9694ms
+[19-01-2025 22:35:28362 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[19-01-2025 22:35:28365 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:35:28366 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - 204 null null 3.8623ms
+[19-01-2025 22:35:28368 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json" 301
+[19-01-2025 22:35:28373 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:35:28376 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:35:28380 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:35:28425 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[19-01-2025 22:35:28431 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 36.9459ms
+[19-01-2025 22:35:28439 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:35:28445 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 347 "application/problem+json; charset=utf-8" 76.1082ms
+[19-01-2025 22:54:13462 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[19-01-2025 22:54:13477 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:54:13479 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - 204 null null 16.9854ms
+[19-01-2025 22:54:13489 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json" 272
+[19-01-2025 22:54:13495 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:54:13496 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:54:13497 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:54:13510 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[19-01-2025 22:54:13514 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 15.1498ms
+[19-01-2025 22:54:13517 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:54:13519 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 263 "application/problem+json; charset=utf-8" 30.7858ms
+[19-01-2025 22:54:55867 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[19-01-2025 22:54:55879 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:54:55882 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/agent/registration""" - 204 null null 15.2875ms
+[19-01-2025 22:54:55890 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json" 270
+[19-01-2025 22:54:55915 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:54:55920 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:54:55930 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:54:56059 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("27"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 22:54:56070 +02:00 SafeTravelApp.Services.UserService ] "User: magenta was found successfully."
+[19-01-2025 22:54:56091 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("2"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 22:54:56512 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("22"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[19-01-2025 22:54:56562 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("32"ms) [Parameters=["@p6='?' (Size = 450), @p7='?' (DbType = Int32), @p8='?' (Size = 10)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Agents] ([CompanyName], [UserId], [VatNumber])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);"
+[19-01-2025 22:54:56582 +02:00 SafeTravelApp.Services.AgentService ] "Agent: SafeTravelApp.Data.Agent signed up successfully."
+[19-01-2025 22:54:56591 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "CreatedAtActionResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[19-01-2025 22:54:56600 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 660.2011ms
+[19-01-2025 22:54:56609 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[19-01-2025 22:54:56617 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 201 275 "application/json; charset=utf-8" 726.4521ms
+[19-01-2025 22:55:18488 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - null null
+[19-01-2025 22:55:18492 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:55:18495 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - 204 null null 7.5995ms
+[19-01-2025 22:55:18497 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json" 46
+[19-01-2025 22:55:18502 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:55:18503 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 22:55:18504 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:55:18523 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("8"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 22:55:18676 +02:00 SafeTravelApp.Services.UserService ] "User: magenta found and retrieved."
+[19-01-2025 22:55:18678 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 22:55:18679 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 173.364ms
+[19-01-2025 22:55:18681 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 22:55:18682 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 631 "application/json; charset=utf-8" 184.783ms
+[19-01-2025 22:57:02734 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - null null
+[19-01-2025 22:57:02751 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:57:02754 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/users/login""" - 204 null null 20.3696ms
+[19-01-2025 22:57:02765 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json" 46
+[19-01-2025 22:57:02790 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 22:57:02798 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 22:57:02802 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 22:57:02896 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("52"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 22:57:03026 +02:00 SafeTravelApp.Services.UserService ] "User: magenta found and retrieved."
+[19-01-2025 22:57:03028 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 22:57:03030 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 215.8652ms
+[19-01-2025 22:57:03032 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 22:57:03033 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 631 "application/json; charset=utf-8" 268.6415ms
+[19-01-2025 23:25:44213 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:25:44227 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 23:25:44230 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/agents/profile""" - 204 null null 16.8774ms
+[19-01-2025 23:25:44234 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:25:44244 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 23:25:44262 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)"'
+[19-01-2025 23:25:44273 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetAgentProfile\", controller = \"Agent\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentReadOnlyDTO]] GetAgentProfile()" on controller "SafeTravelApp.Controllers.AgentController" ("SafeTravelApp").
+[19-01-2025 23:25:44448 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("17"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0"
+[19-01-2025 23:25:44453 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 49 was found successfully."
+[19-01-2025 23:25:44461 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)" in 184.3391ms
+[19-01-2025 23:25:44463 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)"'
+[19-01-2025 23:25:44472 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - 500 null "application/json" 238.5681ms
+[19-01-2025 23:28:36754 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[19-01-2025 23:28:37746 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[19-01-2025 23:28:37748 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[19-01-2025 23:28:38070 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[19-01-2025 23:28:38118 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[19-01-2025 23:28:38123 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[19-01-2025 23:28:38421 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[19-01-2025 23:28:39009 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 595.8481ms
+[19-01-2025 23:28:39095 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[19-01-2025 23:28:39123 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 28.4042ms
+[19-01-2025 23:28:39188 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[19-01-2025 23:28:39303 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 115.3085ms
+[19-01-2025 23:28:39642 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[19-01-2025 23:28:39760 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 117.1889ms
+[19-01-2025 23:28:59636 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:29:07999 +02:00 Microsoft.AspNetCore.Authorization.DefaultAuthorizationService ] Authorization failed. "These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Agent)"
+[19-01-2025 23:29:08028 +02:00 Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler ] AuthenticationScheme: "Bearer" was challenged.
+[19-01-2025 23:29:08036 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - 401 0 null 8400.1026ms
+[19-01-2025 23:29:32086 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:29:32105 +02:00 Microsoft.AspNetCore.Authorization.DefaultAuthorizationService ] Authorization failed. "These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Agent)"
+[19-01-2025 23:29:32109 +02:00 Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler ] AuthenticationScheme: "Bearer" was challenged.
+[19-01-2025 23:29:32112 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - 401 0 null 25.7132ms
+[19-01-2025 23:41:47107 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:41:47126 +02:00 Microsoft.AspNetCore.Authorization.DefaultAuthorizationService ] Authorization failed. "These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Agent)"
+[19-01-2025 23:41:47136 +02:00 Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler ] AuthenticationScheme: "Bearer" was challenged.
+[19-01-2025 23:41:47143 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - 401 0 null 36.2813ms
+[19-01-2025 23:42:11866 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:42:11874 +02:00 Microsoft.AspNetCore.Authorization.DefaultAuthorizationService ] Authorization failed. "These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Agent)"
+[19-01-2025 23:42:11877 +02:00 Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler ] AuthenticationScheme: "Bearer" was challenged.
+[19-01-2025 23:42:11880 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - 401 0 null 14.2236ms
+[19-01-2025 23:42:44146 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:42:44176 +02:00 Microsoft.AspNetCore.Authorization.DefaultAuthorizationService ] Authorization failed. "These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Agent)"
+[19-01-2025 23:42:44180 +02:00 Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler ] AuthenticationScheme: "Bearer" was challenged.
+[19-01-2025 23:42:44184 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - 401 0 null 37.5666ms
+[19-01-2025 23:43:21093 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json-patch+json" 55
+[19-01-2025 23:43:21119 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 23:43:21144 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 23:43:21294 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[19-01-2025 23:43:35642 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("362"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[19-01-2025 23:43:36898 +02:00 SafeTravelApp.Services.UserService ] "User: magenta found and retrieved."
+[19-01-2025 23:43:37448 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[19-01-2025 23:43:37539 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 16219.2839ms
+[19-01-2025 23:43:37547 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[19-01-2025 23:43:37578 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 631 "application/json; charset=utf-8" 16485.6614ms
+[19-01-2025 23:44:30561 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:44:30571 +02:00 Microsoft.AspNetCore.Authorization.DefaultAuthorizationService ] Authorization failed. "These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Agent)"
+[19-01-2025 23:44:30575 +02:00 Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler ] AuthenticationScheme: "Bearer" was challenged.
+[19-01-2025 23:44:30579 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - 401 0 null 18.0234ms
+[19-01-2025 23:44:58462 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/citizens/profile""" - null null
+[19-01-2025 23:44:58469 +02:00 Microsoft.AspNetCore.Authorization.DefaultAuthorizationService ] Authorization failed. "These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Citizen)"
+[19-01-2025 23:44:58473 +02:00 Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler ] AuthenticationScheme: "Bearer" was challenged.
+[19-01-2025 23:44:58496 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/citizens/profile""" - 401 0 null 33.7323ms
+[19-01-2025 23:45:20061 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/citizens/profile""" - null null
+[19-01-2025 23:45:20155 +02:00 Microsoft.AspNetCore.Authorization.DefaultAuthorizationService ] Authorization failed. "These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Citizen)"
+[19-01-2025 23:45:20158 +02:00 Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler ] AuthenticationScheme: "Bearer" was challenged.
+[19-01-2025 23:45:20174 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/citizens/profile""" - 401 0 null 113.5088ms
+[19-01-2025 23:50:07609 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:50:07618 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 23:50:07624 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/agents/profile""" - 204 null null 14.6842ms
+[19-01-2025 23:50:08939 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:50:08945 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 23:50:09032 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)"'
+[19-01-2025 23:50:09047 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetAgentProfile\", controller = \"Agent\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentReadOnlyDTO]] GetAgentProfile()" on controller "SafeTravelApp.Controllers.AgentController" ("SafeTravelApp").
+[19-01-2025 23:50:09405 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("17"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0"
+[19-01-2025 23:50:09421 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 49 was found successfully."
+[19-01-2025 23:50:09444 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)" in 390.506ms
+[19-01-2025 23:50:09453 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)"'
+[19-01-2025 23:50:09472 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - 500 null "application/json" 533.4905ms
+[19-01-2025 23:50:48695 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:50:48706 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 23:50:48723 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/agents/profile""" - 204 null null 27.8717ms
+[19-01-2025 23:50:48920 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:50:48924 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 23:50:48926 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)"'
+[19-01-2025 23:50:48928 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetAgentProfile\", controller = \"Agent\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentReadOnlyDTO]] GetAgentProfile()" on controller "SafeTravelApp.Controllers.AgentController" ("SafeTravelApp").
+[19-01-2025 23:50:48991 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("20"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0"
+[19-01-2025 23:50:48994 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 49 was found successfully."
+[19-01-2025 23:50:48996 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)" in 65.3811ms
+[19-01-2025 23:50:48998 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)"'
+[19-01-2025 23:50:48999 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - 500 null "application/json" 79.2315ms
+[19-01-2025 23:51:41797 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:51:41803 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 23:51:41804 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/agents/profile""" - 204 null null 6.8392ms
+[19-01-2025 23:51:41998 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:51:42016 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 23:51:42035 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)"'
+[19-01-2025 23:51:42051 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetAgentProfile\", controller = \"Agent\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentReadOnlyDTO]] GetAgentProfile()" on controller "SafeTravelApp.Controllers.AgentController" ("SafeTravelApp").
+[19-01-2025 23:51:42118 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("16"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0"
+[19-01-2025 23:51:42135 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 49 was found successfully."
+[19-01-2025 23:51:42141 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)" in 73.8939ms
+[19-01-2025 23:51:42158 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)"'
+[19-01-2025 23:51:42168 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - 500 null "application/json" 170.731ms
+[19-01-2025 23:51:53637 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:51:53656 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 23:51:53660 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/agents/profile""" - 204 null null 22.6582ms
+[19-01-2025 23:51:53873 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[19-01-2025 23:51:53886 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 23:51:53891 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)"'
+[19-01-2025 23:51:53896 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetAgentProfile\", controller = \"Agent\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentReadOnlyDTO]] GetAgentProfile()" on controller "SafeTravelApp.Controllers.AgentController" ("SafeTravelApp").
+[19-01-2025 23:51:53936 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("13"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0"
+[19-01-2025 23:51:53960 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 49 was found successfully."
+[19-01-2025 23:51:53961 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)" in 57.7609ms
+[19-01-2025 23:51:53965 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.AgentController.GetAgentProfile (SafeTravelApp)"'
+[19-01-2025 23:51:53966 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - 500 null "application/json" 93.191ms

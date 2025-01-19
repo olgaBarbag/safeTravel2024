@@ -1,0 +1,115 @@
+﻿USE [SafeTravelApp]
+GO
+INSERT INTO Users (Username, Email, Password, Firstname, Lastname, UserRole, InsertedAt, ModifiedAt)
+VALUES 
+-- Citizens
+('johndoe', 'johndoe@email.com', 'Password123', 'John', 'Doe', 'Citizen', GETDATE(), GETDATE()),
+('maryjane', 'maryjane@email.com', 'Password123', 'Mary', 'Jane', 'Citizen', GETDATE(), GETDATE()),
+('alexsmith', 'alexsmith@email.com', 'Password123', 'Alex', 'Smith', 'Citizen', GETDATE(), GETDATE()),
+('emmawilliams', 'emmawilliams@email.com', 'Password123', 'Emma', 'Williams', 'Citizen', GETDATE(), GETDATE()),
+('liambrown', 'liambrown@email.com', 'Password123', 'Liam', 'Brown', 'Citizen', GETDATE(), GETDATE()),
+('lucasjones', 'lucasjones@email.com', 'Password123', 'Lucas', 'Jones', 'Citizen', GETDATE(), GETDATE()),
+('oliviamiller', 'oliviamiller@email.com', 'Password123', 'Olivia', 'Miller', 'Citizen', GETDATE(), GETDATE()),
+('noahdavis', 'noahdavis@email.com', 'Password123', 'Noah', 'Davis', 'Citizen', GETDATE(), GETDATE()),
+('sophiagarcia', 'sophiagarcia@email.com', 'Password123', 'Sophia', 'Garcia', 'Citizen', GETDATE(), GETDATE()),
+('masonmartinez', 'masonmartinez@email.com', 'Password123', 'Mason', 'Martinez', 'Citizen', GETDATE(), GETDATE()),
+('lucyrodriguez', 'lucyrodriguez@email.com', 'Password123', 'Lucy', 'Rodriguez', 'Citizen', GETDATE(), GETDATE()),
+('daniellee', 'daniellee@email.com', 'Password123', 'Daniel', 'Lee', 'Citizen', GETDATE(), GETDATE()),
+('avalopez', 'avalopez@email.com', 'Password123', 'Ava', 'Lopez', 'Citizen', GETDATE(), GETDATE()),
+('jamesgonzalez', 'jamesgonzalez@email.com', 'Password123', 'James', 'Gonzalez', 'Citizen', GETDATE(), GETDATE()),
+('harryclark', 'harryclark@email.com', 'Password123', 'Harry', 'Clark', 'Citizen', GETDATE(), GETDATE()),
+('charlottewilson', 'charlottewilson@email.com', 'Password123', 'Charlotte', 'Wilson', 'Citizen', GETDATE(), GETDATE()),
+('georgesanchez', 'georgesanchez@email.com', 'Password123', 'George', 'Sanchez', 'Citizen', GETDATE(), GETDATE()),
+('miataylor', 'miataylor@email.com', 'Password123', 'Mia', 'Taylor', 'Citizen', GETDATE(), GETDATE()),
+('jacklee', 'jacklee@email.com', 'Password123', 'Jack', 'Lee', 'Citizen', GETDATE(), GETDATE()),
+('isabellamartin', 'isabellamartin@email.com', 'Password123', 'Isabella', 'Martin', 'Citizen', GETDATE(), GETDATE()),
+('benjaminhall', 'benjaminhall@email.com', 'Password123', 'Benjamin', 'Hall', 'Citizen', GETDATE(), GETDATE()),
+('ellaallen', 'ellaallen@email.com', 'Password123', 'Ella', 'Allen', 'Citizen', GETDATE(), GETDATE()),
+('lucasyoung', 'lucasyoung@email.com', 'Password123', 'Lucas', 'Young', 'Citizen', GETDATE(), GETDATE()),
+('graceking', 'graceking@email.com', 'Password123', 'Grace', 'King', 'Citizen', GETDATE(), GETDATE()),
+
+-- Agents
+('johnsmith', 'johnsmith@email.com', 'Password123', 'John', 'Smith', 'Agent', GETDATE(), GETDATE()),
+('sarahjohnson', 'sarahjohnson@email.com', 'Password123', 'Sarah', 'Johnson', 'Agent', GETDATE(), GETDATE()),
+('markwilliams', 'markwilliams@email.com', 'Password123', 'Mark', 'Williams', 'Agent', GETDATE(), GETDATE()),
+('emilybrown', 'emilybrown@email.com', 'Password123', 'Emily', 'Brown', 'Agent', GETDATE(), GETDATE()),
+('daviddavis', 'daviddavis@email.com', 'Password123', 'David', 'Davis', 'Agent', GETDATE(), GETDATE()),
+('lucymiller', 'lucymiller@email.com', 'Password123', 'Lucy', 'Miller', 'Agent', GETDATE(), GETDATE()),
+('jacksonmartinez', 'jacksonmartinez@email.com', 'Password123', 'Jackson', 'Martinez', 'Agent', GETDATE(), GETDATE()),
+('michaelrodriquez', 'michaelrodriquez@email.com', 'Password123', 'Michael', 'Rodriquez', 'Agent', GETDATE(), GETDATE()),
+('isabellawilson', 'isabellawilson@email.com', 'Password123', 'Isabella', 'Wilson', 'Agent', GETDATE(), GETDATE()),
+('elizabethhall', 'elizabethhall@email.com', 'Password123', 'Elizabeth', 'Hall', 'Agent', GETDATE(), GETDATE());
+
+-- Εισαγωγή δεδομένων στον πίνακα Details
+INSERT INTO Details (UserId, PhoneNumber, Country, City, Address, PostalCode, InsertedAt, ModifiedAt)
+VALUES
+INSERT INTO Details (UserId, PhoneNumber, Country, City, Address, PostalCode, InsertedAt, ModifiedAt)
+VALUES
+(1, '6987654321', 'Greece', 'Athens', 'Odos Ermou 10', '10563', GETDATE(), GETDATE()),
+(2, '6981234562', 'USA', 'New York', '5th Avenue 22', '10001', GETDATE(), GETDATE()),
+(3, '6982345673', 'Greece', 'Rhodes', 'Kallithea 15', '85100', GETDATE(), GETDATE()),
+(4, '6983456784', 'Germany', 'Berlin', 'Unter den Linden 30', '10117', GETDATE(), GETDATE()),
+(5, '6984567895', 'France', 'Paris', 'Champs-Élysées 10', '75008', GETDATE(), GETDATE()),
+(6, '6985678906', 'Italy', 'Rome', 'Via del Corso 12', '00187', GETDATE(), GETDATE()),
+(7, '6986789017', 'Spain', 'Madrid', 'Gran Vía 25', '28013', GETDATE(), GETDATE()),
+(8, '6987890128', 'UK', 'London', 'Oxford Street 40', 'W1D 1AB', GETDATE(), GETDATE()),
+(9, '6988901239', 'Canada', 'Toronto', 'Queen Street West 99', 'M5V 2B8', GETDATE(), GETDATE()),
+(10, '6989012340', 'Australia', 'Sydney', 'George Street 50', '2000', GETDATE(), GETDATE()),
+(11, '6980123451', 'USA', 'Los Angeles', 'Sunset Boulevard 101', '90028', GETDATE(), GETDATE()),
+(12, '6981234563', 'Greece', 'Thessaloniki', 'Tsimiski 25', '54625', GETDATE(), GETDATE()),
+(13, '6982345674', 'Italy', 'Milan', 'Piazza del Duomo 5', '20121', GETDATE(), GETDATE()),
+(14, '6983456785', 'France', 'Marseille', 'Cours Julien 12', '13006', GETDATE(), GETDATE()),
+(15, '6984567896', 'Spain', 'Barcelona', 'Las Ramblas 15', '08002', GETDATE(), GETDATE()),
+(16, '6985678907', 'Germany', 'Munich', 'Marienplatz 1', '80331', GETDATE(), GETDATE()),
+(17, '6986789018', 'UK', 'Manchester', 'Deansgate 10', 'M3 4DN', GETDATE(), GETDATE()),
+(18, '6987890129', 'Australia', 'Melbourne', 'Collins Street 20', '3000', GETDATE(), GETDATE()),
+(19, '6988901230', 'Canada', 'Vancouver', 'Robson Street 120', 'V6B 2B3', GETDATE(), GETDATE()),
+(20, '6989012341', 'Greece', 'Crete', 'Chania 4', '73100', GETDATE(), GETDATE()),
+(21, '6980123452', 'Italy', 'Florence', 'Piazza della Signoria 1', '50122', GETDATE(), GETDATE()),
+(22, '6981234564', 'Spain', 'Seville', 'Avenida de la Constitución 10', '41001', GETDATE(), GETDATE()),
+(23, '6982345675', 'Germany', 'Hamburg', 'Speicherstadt 2', '20457', GETDATE(), GETDATE()),
+(24, '6983456786', 'France', 'Lyon', 'Place Bellecour 4', '69002', GETDATE(), GETDATE()),
+(25, '6984567897', 'Greece', 'Santorini', 'Fira 30', '84700', GETDATE(), GETDATE()),
+(26, '6985678908', 'USA', 'San Francisco', 'Market Street 30', '94105', GETDATE(), GETDATE()),
+(27, '6986789019', 'Canada', 'Montreal', 'Rue Sainte-Catherine 200', 'H3B 1A1', GETDATE(), GETDATE()),
+(28, '6987890130', 'Australia', 'Brisbane', 'Queen Street Mall 120', '4000', GETDATE(), GETDATE()),
+(29, '6988901231', 'UK', 'Bristol', 'Park Street 15', 'BS1 5JA', GETDATE(), GETDATE()),
+(30, '6989012342', 'Italy', 'Naples', 'Via Toledo 100', '80134', GETDATE(), GETDATE());
+
+-- Εισαγωγή δεδομένων στον πίνακα Citizens
+INSERT INTO Citizens (BirthDate, Gender, Occupation, UserId, InsertedAt, ModifiedAt)
+VALUES
+('1991-05-12', 'Male', 'employee', 1, GETDATE(), GETDATE()),
+('1993-03-25', 'Female', 'self-employed', 2, GETDATE(), GETDATE()),
+('1988-11-02', 'Male', 'student', 3, GETDATE(), GETDATE()),
+('1990-07-19', 'Female', 'unemployed', 4, GETDATE(), GETDATE()),
+('1992-06-22', 'NonBinary', 'government employee', 5, GETDATE(), GETDATE()),
+('1995-01-15', 'Male', 'employee', 6, GETDATE(), GETDATE()),
+('1994-02-28', 'Female', 'self-employed', 7, GETDATE(), GETDATE()),
+('1996-04-14', 'Male', 'none', 8, GETDATE(), GETDATE()),
+('1989-09-30', 'Female', 'employee', 9, GETDATE(), GETDATE()),
+('1990-08-11', 'Male', 'unemployed', 10, GETDATE(), GETDATE()),
+('1987-03-04', 'Female', 'employee', 11, GETDATE(), GETDATE()),
+('1991-12-20', 'Male', 'student', 12, GETDATE(), GETDATE()),
+('1988-06-09', 'Female', 'self-employed', 13, GETDATE(), GETDATE()),
+('1992-10-14', 'NonBinary', 'none', 14, GETDATE(), GETDATE()),
+('1990-01-25', 'Male', 'employee', 15, GETDATE(), GETDATE()),
+('1987-11-03', 'Female', 'government employee', 16, GETDATE(), GETDATE()),
+('1995-07-20', 'Male', 'unemployed', 17, GETDATE(), GETDATE()),
+('1993-09-13', 'Female', 'self-employed', 18, GETDATE(), GETDATE()),
+('1991-04-05', 'Male', 'student', 19, GETDATE(), GETDATE()),
+('1989-05-18', 'Female', 'employee', 20, GETDATE(), GETDATE());
+
+-- Εισαγωγή δεδομένων στον πίνακα Agents
+INSERT INTO Agents (CompanyName, VatNumber, UserId, InsertedAt, ModifiedAt)
+VALUES
+('TravelCo', '1234567890', 1, GETDATE(), GETDATE()),
+('ExploreWorld', '9876543210', 2, GETDATE(), GETDATE()),
+('GlobalTours', '1239876543', 3, GETDATE(), GETDATE()),
+('AdventureHub', '4561237890', 4, GETDATE(), GETDATE()),
+('SunnyDestinations', '7894561230', 5, GETDATE(), GETDATE()),
+('DreamTravels', '2468135790', 6, GETDATE(), GETDATE()),
+('WorldWanderers', '1357924680', 7, GETDATE(), GETDATE()),
+('TravelMasters', '8642097531', 8, GETDATE(), GETDATE()),
+('LuxuryGetaways', '1230987654', 9, GETDATE(), GETDATE()),
+('GlobeTrotters', '5678901234', 10, GETDATE(), GETDATE());

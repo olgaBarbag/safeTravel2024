@@ -158,7 +158,6 @@ namespace SafeTravelApp.Controllers
            
             return NoContent();
         }
-
         
     }
 }

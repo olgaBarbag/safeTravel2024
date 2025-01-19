@@ -8,8 +8,8 @@
         public string? Lastname { get; set; }
         public string? CompanyName { get; set; }
         public string? VatNumber { get; set; }
-        public DateTime InsertedAt { get; set; }
-        public DateTime ModifiedAt { get; set; }
+        //public DateTime InsertedAt { get; set; }
+        //public DateTime ModifiedAt { get; set; }
 
     }
 }

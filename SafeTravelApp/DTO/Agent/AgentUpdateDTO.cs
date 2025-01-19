@@ -49,7 +49,6 @@ namespace SafeTravelApp.DTO.Agent
         public string? CompanyName { get; set; }
 
         [StringLength(10, ErrorMessage = "Vat Number should not exceed 10 characters.")]
-        [Phone(ErrorMessage = "Invalid phone number.")]
         public string? VatNumber { get; set; }
     }
 }

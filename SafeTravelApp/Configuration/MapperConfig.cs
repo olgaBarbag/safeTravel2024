@@ -49,6 +49,12 @@ namespace SafeTravelApp.Configuration
                .ReverseMap();
 
             CreateMap<User, AgentSignUpDTO>()
+                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => $"{src.Username}"))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => $"{src.Email}"))
+                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => $"{src.Password}"))
+                .ForMember(dest => dest.Firstname, opt => opt.MapFrom(src => $"{src.Firstname}"))
+                .ForMember(dest => dest.Lastname, opt => opt.MapFrom(src => $"{src.Lastname}"))
+                .ForMember(dest => dest.UserRole, opt => opt.MapFrom(src => $"{src.UserRole}"))
                 .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.Details != null ? src.Details.PhoneNumber : string.Empty))
                 .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Details != null ? src.Details.Country : string.Empty))
                 .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.Details != null ? src.Details.City : string.Empty))
@@ -77,7 +83,7 @@ namespace SafeTravelApp.Configuration
 //---------------------------------------------------------------------------------------------------------------------------
 
             CreateMap<Citizen, CitizenReadOnlyDTO>()
-               .ForMember(dest => dest.BirthDate, opt => opt.MapFrom(src => src.BirthDate != null ? src.BirthDate : new DateTime(1900, 1, 1)))
+               .ForMember(dest => dest.BirthDate, opt => opt.MapFrom(src => src.BirthDate != null ? src.BirthDate : new DateOnly(1900, 1, 1)))
                .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender != null ? src.Gender : Gender.None))
                .ForMember(dest => dest.Occupation, opt => opt.MapFrom(src => src.Occupation != null ? src.Occupation : string.Empty))
                .ReverseMap();
@@ -103,7 +109,7 @@ namespace SafeTravelApp.Configuration
                 .ReverseMap();
 
             CreateMap<Citizen, CitizenSignUpDTO>()
-                .ForMember(dest => dest.BirthDate, opt => opt.MapFrom(src => src.BirthDate != null ? src.BirthDate : new DateTime(1900, 1, 1)))
+                .ForMember(dest => dest.BirthDate, opt => opt.MapFrom(src => src.BirthDate != null ? src.BirthDate : new DateOnly(1900, 1, 1)))
                 .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender != null ? src.Gender : Gender.None))
                 .ForMember(dest => dest.Occupation, opt => opt.MapFrom(src => src.Occupation != null ? src.Occupation : string.Empty))
                 .ReverseMap();
@@ -122,7 +128,7 @@ namespace SafeTravelApp.Configuration
                 .ReverseMap();
 
             CreateMap<Citizen, CitizenUpdateDTO>()
-                .ForMember(dest => dest.BirthDate, opt => opt.MapFrom(src => src.BirthDate != null ? src.BirthDate : new DateTime(1900, 1, 1)))
+                .ForMember(dest => dest.BirthDate, opt => opt.MapFrom(src => src.BirthDate != null ? src.BirthDate : new DateOnly(1900, 1, 1)))
                 .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender != null ? src.Gender : Gender.None))
                 .ForMember(dest => dest.Occupation, opt => opt.MapFrom(src => src.Occupation != null ? src.Occupation : string.Empty))
                 .ReverseMap();

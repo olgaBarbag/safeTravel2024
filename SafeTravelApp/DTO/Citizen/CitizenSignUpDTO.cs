@@ -55,7 +55,7 @@ namespace SafeTravelApp.DTO.Citizen
         public string? PostalCode { get; set; }
     //--------------------------------------------------------------------------------------------------------------
         [DataType(DataType.Date)]
-        public DateTime? BirthDate { get; set; }
+        public DateOnly? BirthDate { get; set; }
 
         [EnumDataType(typeof(Gender), ErrorMessage = "Invalid value.")]
         public Gender? Gender { get; set; }
