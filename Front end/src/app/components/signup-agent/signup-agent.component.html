@@ -1,0 +1,157 @@
+<h2 class="text-center">Agent Sign Up</h2>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="form d-flex justify-content-center">
+    <div class="card mt-3 w-50">
+      <div class="card-body">
+
+        <div class="row">
+          <!-- First Name -->
+          <div class="form-group col">
+            <label for="firstName">First Name</label>
+            <input id="firstName" type="text" formControlName="firstName" class="form-control"
+                   [ngClass]="{ 'is-invalid': firstName.invalid && (firstName.dirty || firstName.touched) }">
+            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="text-danger">
+              <div *ngIf="firstName.errors?.['required']">First name is required.</div>
+            </div>
+          </div>
+
+          <!-- Last Name -->
+          <div class="form-group col">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" type="text" formControlName="lastName" class="form-control"
+                   [ngClass]="{ 'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched) }">
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger">
+              <div *ngIf="lastName.errors?.['required']">Last name is required.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- VAT-->
+          <div class="form-group col">
+            <label for="vatNumber">VAT</label>
+            <input id="vatNumber" type="text" formControlName="vatNumber" class="form-control"
+                   [ngClass]="{ 'is-invalid': vatNumber.invalid && (vatNumber.dirty || vatNumber.touched) }">
+            <div *ngIf="vatNumber.invalid && (vatNumber.dirty || vatNumber.touched)" class="text-danger">
+              <div *ngIf="vatNumber.errors?.['required']">VAT is required.</div>
+            </div>
+          </div>
+          <!-- Company Name -->
+          <div class="form-group col">
+            <label for="companyName">Company Name</label>
+            <input id="companyName" type="text" formControlName="companyName" class="form-control"
+                   [ngClass]="{ 'is-invalid': companyName.invalid && (companyName.dirty || companyName.touched) }">
+            <div *ngIf="companyName.invalid && (companyName.dirty || companyName.touched)" class="text-danger">
+              <div *ngIf="companyName.errors?.['required']">Company Name is required.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Email -->
+          <div class="form-group col-8">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" class="form-control"
+                   [ngClass]="{ 'is-invalid': email.invalid && (email.dirty || email.touched) }">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+              <div *ngIf="email.errors?.['required']">Email is required.</div>
+              <div *ngIf="email.errors?.['email']">Invalid email format.</div>
+            </div>
+          </div>
+
+          <!-- Phone Number -->
+          <div class="form-group col">
+            <label for="phoneNumber">Phone number</label>
+            <input id="phoneNumber" type="tel" formControlName="phoneNumber" class="form-control"
+                   [ngClass]="{ 'is-invalid': phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched) }">
+            <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="text-danger">
+              <div *ngIf="phoneNumber.errors?.['required']">Phone number is required.</div>
+              <div *ngIf="phoneNumber.errors?.['pattern']">Please enter a 10-digit phone number.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Country -->
+        <div class="row">
+          <div class="form-group col">
+            <label for="country">Country</label>
+            <input id="country" type="text" formControlName="country" class="form-control"
+                   [ngClass]="{ 'is-invalid': country.invalid && (country.dirty || country.touched) }">
+            <div *ngIf="country.invalid && (country.dirty || country.touched)" class="text-danger">
+              <div *ngIf="country.errors?.['required']">Country is required.</div>
+            </div>
+          </div>
+
+          <!-- City -->
+          <div class="form-group col">
+            <label for="city">City</label>
+            <input id="city" type="text" formControlName="city" class="form-control"
+                   [ngClass]="{ 'is-invalid': city.invalid && (city.dirty || city.touched) }">
+            <div *ngIf="city.invalid && (city.dirty || city.touched)" class="text-danger">
+              <div *ngIf="city.errors?.['required']">City is required.</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Address -->
+          <div class="form-group col-8">
+            <label for="address">Address</label>
+            <input id="address" type="text" formControlName="address" class="form-control"
+                   [ngClass]="{ 'is-invalid': address.invalid && (address.dirty || address.touched) }">
+            <div *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger">
+              <div *ngIf="address.errors?.['required']">Address is required.</div>
+            </div>
+          </div>
+
+          <!-- Postal Code -->
+          <div class="form-group col">
+            <label for="postalCode">Postal code</label>
+            <input id="postalCode" type="text" formControlName="postalCode" class="form-control"
+                   [ngClass]="{ 'is-invalid': postalCode.invalid && (postalCode.dirty || postalCode.touched) }">
+            <div *ngIf="postalCode.invalid && (postalCode.dirty || postalCode.touched)" class="text-danger">
+              <div *ngIf="postalCode.errors?.['required']">Postal code is required.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- User Role -->
+        <div class="form-group">
+          <label for="userRole">User role</label>
+          <select class="form-select form-control" id="userRole" formControlName="userRole">
+            <option *ngFor="let userRole of userRoles" [value]="userRole">{{ userRole }}</option>
+          </select>
+        </div>
+
+        <!-- Username -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input id="username" type="text" formControlName="username" class="form-control"
+                 [ngClass]="{ 'is-invalid': username.invalid && (username.dirty || username.touched) }">
+          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+            <div *ngIf="username.errors?.['required']">Username is required.</div>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group mt-3">
+          <label for="password">Password</label>
+          <input id="password" type="password" formControlName="password" class="form-control"
+                 [ngClass]="{ 'is-invalid': password.invalid && (password.dirty || password.touched) }">
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+            <div *ngIf="password.errors?.['required']">Password is required.</div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group mt-3">
+          <button type="submit" [disabled]="signupForm.invalid" class="btn btn-info text-light">Sign Up</button>
+        </div>
+
+        <div *ngIf="backendErrors" class="text-danger">
+          <p>{{ backendErrors }}</p>
+        </div>
+        <div *ngIf="infoMessage" class="text-info">
+          <p>{{ infoMessage }}</p>
+        </div>
+      </div>
+    </div>
+</form>

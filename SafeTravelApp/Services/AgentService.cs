@@ -113,9 +113,9 @@ namespace SafeTravelApp.Services
             return agentReadOnlyDTOs;
         }
 
-        public async Task<AgentReadOnlyDTO?> GetAgentByIdAsync(int id)
+        public async Task<AgentDetailsReadOnlyDTO?> GetAgentByIdAsync(int id)
         {
-            AgentReadOnlyDTO? agentReadOnlyDTO = null;
+            AgentDetailsReadOnlyDTO? agentDetailsReadOnlyDTO = null;
 
             try
             {
@@ -127,7 +127,7 @@ namespace SafeTravelApp.Services
                     return null;
                 }
 
-                agentReadOnlyDTO = _mapper.Map<AgentReadOnlyDTO>(agent);
+                agentDetailsReadOnlyDTO = _mapper.Map<AgentDetailsReadOnlyDTO>(agent);
                 _logger.LogInformation("{Message}", "Agent with id: " + id + " was found");
             }
             catch (Exception ex)
@@ -136,12 +136,12 @@ namespace SafeTravelApp.Services
                 _logger.LogError("{Message}{Excpetion}", ex.Message, ex.StackTrace);
             }
 
-            return agentReadOnlyDTO;
+            return agentDetailsReadOnlyDTO;
         }
 
-        public async Task<AgentReadOnlyDTO?> GetAgentByPhoneNumberAsync(string phoneNumber)
+        public async Task<AgentDetailsReadOnlyDTO?> GetAgentByPhoneNumberAsync(string phoneNumber)
         {
-            AgentReadOnlyDTO? agentReadOnlyDTO = null;
+            AgentDetailsReadOnlyDTO? agentReadOnlyDTO = null;
 
             try
             {
@@ -153,7 +153,7 @@ namespace SafeTravelApp.Services
                     return null;
                 }
 
-                agentReadOnlyDTO = _mapper.Map<AgentReadOnlyDTO>(user);
+                agentReadOnlyDTO = _mapper.Map<AgentDetailsReadOnlyDTO>(user);
                 _logger.LogInformation("{Message}", "Agent with phoneNumber: " + phoneNumber + " was found");
             }
             catch (Exception ex)
@@ -165,9 +165,9 @@ namespace SafeTravelApp.Services
             return agentReadOnlyDTO;
         }
 
-        public async Task<AgentReadOnlyDTO?> GetAgentByUsernameAsync(string username)
+        public async Task<AgentDetailsReadOnlyDTO?> GetAgentByUsernameAsync(string username)
         {
-            AgentReadOnlyDTO? agentReadOnlyDTO = null;
+            AgentDetailsReadOnlyDTO? agentDetailsReadOnlyDTO = null;
 
             try
             {
@@ -179,7 +179,7 @@ namespace SafeTravelApp.Services
                     return null;
                 }
 
-                agentReadOnlyDTO = _mapper.Map<AgentReadOnlyDTO>(user);
+                agentDetailsReadOnlyDTO = _mapper.Map<AgentDetailsReadOnlyDTO>(user);
                 _logger.LogInformation("{Message}", "Agent: " + username + " was found");
             }
             catch (Exception ex)
@@ -188,7 +188,7 @@ namespace SafeTravelApp.Services
                 _logger.LogError("{Message}{Excpetion}", ex.Message, ex.StackTrace);
             }
 
-            return agentReadOnlyDTO;
+            return agentDetailsReadOnlyDTO;
         }
 
         public async Task<List<Destination>> GetAllAgentDestinationsFilteredAsync(Agent agent, DestinationFiltersDTO destinationFiltersDTO)

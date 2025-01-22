@@ -14,9 +14,9 @@ namespace SafeTravelApp.Services
         Task<List<AgentReadOnlyDTO>> GetAllUsersAgentsAsync(int pageNumber, int pageSize);
         Task<List<AgentReadOnlyDTO>> GetAllUsersAgentsFilteredAsync(AgentDetailsFiltersDTO agentDetailsFiltersDTO);
 
-        Task<AgentReadOnlyDTO?> GetAgentByUsernameAsync(string username);
-        Task<AgentReadOnlyDTO?> GetAgentByIdAsync(int id);
-        Task<AgentReadOnlyDTO?> GetAgentByPhoneNumberAsync(string phoneNumber);
+        Task<AgentDetailsReadOnlyDTO?> GetAgentByUsernameAsync(string username);
+        Task<AgentDetailsReadOnlyDTO?> GetAgentByIdAsync(int id);
+        Task<AgentDetailsReadOnlyDTO?> GetAgentByPhoneNumberAsync(string phoneNumber);
 
         Task<List<Destination>> GetAllAgentDestinationsFilteredAsync(Agent agent, DestinationFiltersDTO destinationFiltersDTO); 
         Task<List<AgentReadOnlyDTO>> GetAllDestinationAgentsFilteredAsync(Destination destination, AgentDetailsFiltersDTO agentDetailsFiltersDTO);

@@ -1,0 +1,36 @@
+<h2 class="text-center">Login</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form d-flex justify-content-center">
+    <div class="card mt-3 w-25">
+      <div class="card-body">
+
+        <!-- username -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input id="username" type="username" formControlName="username" class="form-control"
+                 [ngClass]="{ 'is-invalid': username.invalid && (username.dirty || username.touched) }">
+          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+            <div *ngIf="username.errors?.['required']">username is required.</div>
+            
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group mt-3">
+          <label for="password">Password</label>
+          <input id="password" type="password" formControlName="password" class="form-control"
+                 [ngClass]="{ 'is-invalid': password.invalid && (password.dirty || password.touched) }">
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+            <div *ngIf="password.errors?.['required']">Password is required.</div>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+            <button type="submit" [disabled]="loginForm.invalid" class="btn btn-info text-light">Login</button>
+        </div>
+        <div *ngIf="backendErrors" class="text-danger">
+          <p>{{ backendErrors }}</p>
+        </div>
+      </div>
+      <a class="link-secondary d-flex justify-content-center mt-2" style="text-decoration: none;" [routerLink]="['/signup']">Create an account</a>
+      <a class="link-secondary d-flex justify-content-center mb-2" style="text-decoration: none;" [routerLink]="['/signup-agent']">Create an Agent account</a>
+    </div>
+</form>

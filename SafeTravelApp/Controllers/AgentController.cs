@@ -26,12 +26,12 @@ namespace SafeTravelApp.Controllers
             _mapper = mapper;
         }
 
-        
         [HttpGet("profile")]
-        public async Task<ActionResult<AgentReadOnlyDTO>> GetAgentProfile()
+        public async Task<ActionResult<AgentDetailsReadOnlyDTO>> GetAgentProfile()
         {
-            var userId = AppUser!.Id;
-            
+            int userId = AppUser!.Id;
+            //if (userId == null) throw new EntityNotAuthorizedException("User", "ForbiddenAccess");
+
             User? user = await _applicationService.UserService.GetUserByIdAsync(userId);
             if (user == null) return NotFound();
             
@@ -73,8 +73,9 @@ namespace SafeTravelApp.Controllers
         [HttpGet("recommendations/{recommendationId}")]
         public async Task<ActionResult<DestinationRecommendationReadOnlyDTO>> GetRecommendationById(int recommendationId)
         {
-            var userId = AppUser!.Id;
-            
+            int? userId = AppUser!.Id;
+            if (userId == null) throw new EntityNotAuthorizedException("User", "ForbiddenAccess");
+
             var recommendation = await _applicationService.RecommendationService.GetRecommendationByIdAsync(recommendationId);
             if (recommendation == null || recommendation.ContributorId != userId)
             {

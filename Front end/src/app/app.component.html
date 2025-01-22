@@ -1,0 +1,60 @@
+<main>
+  <nav class="navbar navbar-expand-lg bg-primary-subtle">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['/home']">
+        <img class="" width="60" height="60" src="assets/safe-travel-logo.svg" alt="logo" aria-hidden="true" />
+      </a>
+      <!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
+      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
+
+      <!-- Step 2: Add the ngbCollapse directive to the element below. -->
+      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <!-- Step 4: Close the menu when a link is clicked. -->
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/home']"
+              (click)="isMenuCollapsed = true" >Home</a>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn && isAgentLoggedIn">
+            <!-- Step 4: Close the menu when a link is clicked. -->
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']"
+              (click)="isMenuCollapsed = true" >Dashboard</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav mr-3">
+          <li class="nav-item">
+            <a class="nav-link text-secondary" style="text-decoration: none;" [routerLink]="['/login']"
+              *ngIf="!isLoggedIn">Login</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link text-secondary" style="text-decoration: none;" [routerLink]="['/account']"
+              *ngIf="isLoggedIn">My Account</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link text-secondary" style="text-decoration: none;" [routerLink]="['/login']" (click)="logout()"
+            *ngIf="isLoggedIn">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- <div class="d-flex flex-nowrap" style="height: 100vh;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;" *ngIf="isLoggedIn">
+      <ul class="nav nav-underline flex-column mb-auto">
+        <li>
+          <a class="nav-link link-body-emphasis" routerLinkActive="active" [routerLink]="['/dashboard']">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a class="nav-link link-body-emphasis" routerLinkActive="active" [routerLink]="['/my-recommendations']">
+            My Recommendations
+          </a>
+        </li>
+      </ul>
+    </div> -->
+    <section class="content d-flex flex-column flex-fill pt-2">
+      <router-outlet></router-outlet>
+    </section>
+  <!-- </div> -->
+</main>
