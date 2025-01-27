@@ -12,7 +12,7 @@ namespace SafeTravelApp.Controllers
 {
     [ApiController]
     [Route("api/agents")]
-    [Authorize(Roles = "Agent")]
+    //[Authorize(Roles = "Agent")]
     public class AgentController : BaseController
     {
         private readonly IConfiguration _configuration;

@@ -3,6 +3,7 @@
     public interface IUnitOfWork
     {
         UserRepository UserRepository { get; }
+        DetailsRepository DetailsRepository { get; }
         AgentRepository AgentRepository { get; }
         LanguageRepository LanguageRepository { get; }
         CertificationRepository CertificationRepository { get; }

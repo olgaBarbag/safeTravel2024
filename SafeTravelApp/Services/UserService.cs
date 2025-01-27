@@ -169,7 +169,7 @@ namespace SafeTravelApp.Services
 
             try
             {
-                user = await _unitOfWork.UserRepository.GetByIdAsync(id);
+                user = await _unitOfWork.UserRepository.GetByUserByIdAsync(id);
                 _logger!.LogInformation("{Message}", "The user with userId: " + id + " was found successfully.");
             }
             catch (Exception e)
@@ -250,9 +250,9 @@ namespace SafeTravelApp.Services
                 {
                     predicates.Add(u => u.Details!.PhoneNumber == userDetailsFiltersDTO.PhoneNumber); 
                 }
-                if (!string.IsNullOrEmpty(userDetailsFiltersDTO.Address))
+                if (!string.IsNullOrEmpty(userDetailsFiltersDTO.Country))
                 {
-                    predicates.Add(u => u.Details!.Address == userDetailsFiltersDTO.Address);
+                    predicates.Add(u => u.Details!.Country == userDetailsFiltersDTO.Country);
                 }
                 if (!string.IsNullOrEmpty(userDetailsFiltersDTO.City))
                 {
@@ -281,7 +281,7 @@ namespace SafeTravelApp.Services
                 new Claim(ClaimTypes.Name, username),
                 new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
                 new Claim(ClaimTypes.Email, email),
-                new Claim(ClaimTypes.Role, userRole.ToString()!)
+                new Claim(ClaimTypes.Role, userRole.ToString().Split('.').Last()!)
             };
 
             var issuer = "https://localhost:5000";

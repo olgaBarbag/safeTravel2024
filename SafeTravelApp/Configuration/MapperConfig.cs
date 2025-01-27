@@ -14,16 +14,39 @@ namespace SafeTravelApp.Configuration
     {
         public MapperConfig()
         {
-            CreateMap<User, UserDTO>().ReverseMap();
+            CreateMap<User, UserSignupDTO>()
+                .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.Details != null ? src.Details.PhoneNumber : string.Empty))
+                .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Details != null ? src.Details.Country : string.Empty))
+                .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.Details != null ? src.Details.City : string.Empty))
+                .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Details != null ? src.Details.Address : string.Empty))
+                .ForMember(dest => dest.PostalCode, opt => opt.MapFrom(src => src.Details != null ? src.Details.PostalCode : string.Empty))
+                .ReverseMap()
+                .ForMember(dest => dest.Details, opt => opt.MapFrom(src => new UserDetails
+                {
+                    PhoneNumber = src.PhoneNumber,
+                    Country = src.Country,
+                    City = src.City,
+                    Address = src.Address,
+                    PostalCode = src.PostalCode
+                }));
+
             CreateMap<User, UserUpdateDTO>()
                 .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.Details != null ? src.Details.PhoneNumber : string.Empty))
                 .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Details != null ? src.Details.Country : string.Empty))
                 .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.Details != null ? src.Details.City : string.Empty))
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Details != null ? src.Details.Address : string.Empty))
                 .ForMember(dest => dest.PostalCode, opt => opt.MapFrom(src => src.Details != null ? src.Details.PostalCode : string.Empty))
-                .ReverseMap();
-                
-            CreateMap<User, UserSignupDTO>()
+                .ReverseMap()
+                .ForMember(dest => dest.Details, opt => opt.MapFrom(src => new UserDetails
+                {
+                    PhoneNumber = src.PhoneNumber,
+                    Country = src.Country,
+                    City = src.City,
+                    Address = src.Address,
+                    PostalCode = src.PostalCode
+                }));
+
+            CreateMap<User, UserReadOnlyDTO>()
                 .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.Details != null ? src.Details.PhoneNumber : string.Empty))
                 .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Details != null ? src.Details.Country : string.Empty))
                 .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.Details != null ? src.Details.City : string.Empty))
@@ -31,7 +54,6 @@ namespace SafeTravelApp.Configuration
                 .ForMember(dest => dest.PostalCode, opt => opt.MapFrom(src => src.Details != null ? src.Details.PostalCode : string.Empty))
                 .ReverseMap();
 
-            CreateMap<User, UserReadOnlyDTO>().ReverseMap();
             CreateMap<User, UserLoginDTO>().ReverseMap();
 
 //---------------------------------------------------------------------------------------------------------------------------
@@ -51,7 +73,6 @@ namespace SafeTravelApp.Configuration
             CreateMap<User, AgentDetailsReadOnlyDTO>()
                 .ForMember(dest => dest.Username, opt => opt.MapFrom(src => $"{src.Username}"))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => $"{src.Email}"))
-                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => $"{src.Password}"))
                 .ForMember(dest => dest.Firstname, opt => opt.MapFrom(src => $"{src.Firstname}"))
                 .ForMember(dest => dest.Lastname, opt => opt.MapFrom(src => $"{src.Lastname}"))
                 .ForMember(dest => dest.UserRole, opt => opt.MapFrom(src => $"{src.UserRole}"))
@@ -68,18 +89,26 @@ namespace SafeTravelApp.Configuration
                 .ReverseMap();
 
             CreateMap<User, AgentSignUpDTO>()
-                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => $"{src.Username}"))
-                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => $"{src.Email}"))
-                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => $"{src.Password}"))
-                .ForMember(dest => dest.Firstname, opt => opt.MapFrom(src => $"{src.Firstname}"))
-                .ForMember(dest => dest.Lastname, opt => opt.MapFrom(src => $"{src.Lastname}"))
-                .ForMember(dest => dest.UserRole, opt => opt.MapFrom(src => $"{src.UserRole}"))
+                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.Username != null ? src.Username : string.Empty))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email != null ? src.Email : string.Empty))
+                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password != null ? src.Password : string.Empty))
+                .ForMember(dest => dest.Firstname, opt => opt.MapFrom(src => src.Firstname != null ? src.Firstname : string.Empty))
+                .ForMember(dest => dest.Lastname, opt => opt.MapFrom(src => src.Lastname != null ? src.Lastname : string.Empty))
+                .ForMember(dest => dest.UserRole, opt => opt.MapFrom(src => src.UserRole != null ? src.UserRole : UserRole.Agent))
                 .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.Details != null ? src.Details.PhoneNumber : string.Empty))
                 .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Details != null ? src.Details.Country : string.Empty))
                 .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.Details != null ? src.Details.City : string.Empty))
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Details != null ? src.Details.Address : string.Empty))
                 .ForMember(dest => dest.PostalCode, opt => opt.MapFrom(src => src.Details != null ? src.Details.PostalCode : string.Empty))
-                .ReverseMap();
+                .ReverseMap()
+                .ForMember(dest => dest.Details, opt => opt.MapFrom(src => new UserDetails
+                {
+                    PhoneNumber = src.PhoneNumber,
+                    Country = src.Country,
+                    City = src.City,
+                    Address = src.Address,
+                    PostalCode = src.PostalCode
+                }));
 
             CreateMap<Agent, AgentSignUpDTO>()
                 .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.CompanyName != null ? src.CompanyName : string.Empty))
@@ -114,18 +143,47 @@ namespace SafeTravelApp.Configuration
                .ForMember(dest => dest.Lastname, opt => opt.MapFrom(src => src.Lastname != null ? src.Lastname : string.Empty))
                .ReverseMap();
 
-            CreateMap<User, CitizenSignUpDTO>()
-                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.Username != null ? src.Username : string.Empty))
-                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email != null ? src.Email : string.Empty))
-                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password != null ? src.Password : string.Empty))
-                .ForMember(dest => dest.Firstname, opt => opt.MapFrom(src => src.Firstname != null ? src.Firstname : string.Empty))
-                .ForMember(dest => dest.Lastname, opt => opt.MapFrom(src => src.Lastname != null ? src.Lastname : string.Empty))
+            CreateMap<User, CitizenDetailsReadOnlyDTO>()
+                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => $"{src.Username}"))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => $"{src.Email}"))
+                .ForMember(dest => dest.Firstname, opt => opt.MapFrom(src => $"{src.Firstname}"))
+                .ForMember(dest => dest.Lastname, opt => opt.MapFrom(src => $"{src.Lastname}"))
+                .ForMember(dest => dest.UserRole, opt => opt.MapFrom(src => $"{src.UserRole}"))
                 .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.Details != null ? src.Details.PhoneNumber : string.Empty))
                 .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Details != null ? src.Details.Country : string.Empty))
                 .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.Details != null ? src.Details.City : string.Empty))
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Details != null ? src.Details.Address : string.Empty))
                 .ForMember(dest => dest.PostalCode, opt => opt.MapFrom(src => src.Details != null ? src.Details.PostalCode : string.Empty))
                 .ReverseMap();
+
+            CreateMap<Citizen, CitizenDetailsReadOnlyDTO>()
+                .ForMember(dest => dest.BirthDate, opt => opt.MapFrom(src => src.BirthDate != null ? src.BirthDate : new DateOnly(1900, 1, 1)))
+                .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender != null ? src.Gender : Gender.None))
+                .ForMember(dest => dest.Occupation, opt => opt.MapFrom(src => src.Occupation != null ? src.Occupation : string.Empty))
+                .ReverseMap();
+
+            CreateMap<User, CitizenSignUpDTO>()
+                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.Username != null ? src.Username : string.Empty))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email != null ? src.Email : string.Empty))
+                .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password != null ? src.Password : string.Empty))
+                .ForMember(dest => dest.Firstname, opt => opt.MapFrom(src => src.Firstname != null ? src.Firstname : string.Empty))
+                .ForMember(dest => dest.Lastname, opt => opt.MapFrom(src => src.Lastname != null ? src.Lastname : string.Empty))
+                .ForMember(dest => dest.UserRole, opt => opt.MapFrom(src => src.UserRole != null ? src.UserRole : UserRole.Citizen))
+                .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.Details != null ? src.Details.PhoneNumber : string.Empty))
+                .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Details != null ? src.Details.Country : string.Empty))
+                .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.Details != null ? src.Details.City : string.Empty))
+                .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Details != null ? src.Details.Address : string.Empty))
+                .ForMember(dest => dest.PostalCode, opt => opt.MapFrom(src => src.Details != null ? src.Details.PostalCode : string.Empty))
+                .ReverseMap()
+                .ForMember(dest => dest.Details, opt => opt.MapFrom(src => new UserDetails
+                {
+                    PhoneNumber = src.PhoneNumber,
+                    Country = src.Country,
+                    City = src.City,
+                    Address = src.Address,
+                    PostalCode = src.PostalCode
+                }));
+
 
             CreateMap<Citizen, CitizenSignUpDTO>()
                 .ForMember(dest => dest.BirthDate, opt => opt.MapFrom(src => src.BirthDate != null ? src.BirthDate : new DateOnly(1900, 1, 1)))

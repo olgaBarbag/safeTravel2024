@@ -10,11 +10,11 @@ namespace SafeTravelApp.Services
 {
     public interface ICitizenService
     {
-        Task<UserReadOnlyDTO> SignUpUserAsync(CitizenSignUpDTO request);
+        Task<CitizenDetailsReadOnlyDTO> SignUpUserAsync(CitizenSignUpDTO request);
         Task<List<CitizenReadOnlyDTO>> GetAllUsersCitizensAsync(int pageNumber, int pageSize);
         Task<List<CitizenReadOnlyDTO>> GetAllUsersCitizensFilteredAsync(CitizenDetailsFiltersDTO citizenDetaisFiltersDTO);
 
-        Task<CitizenReadOnlyDTO?> GetCitizenByUsernameAsync(string username);
+        Task<CitizenDetailsReadOnlyDTO?> GetCitizenByUsernameAsync(string username);
         Task<CitizenReadOnlyDTO?> GetCitizenByIdAsync(int id);
         Task<CitizenReadOnlyDTO?> GetCitizenByPhoneNumberAsync(string phoneNumber);
 

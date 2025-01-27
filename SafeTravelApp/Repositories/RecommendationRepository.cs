@@ -52,11 +52,11 @@ namespace SafeTravelApp.Repositories
                 case UserRole.Citizen:
 
                     bool isLocal = destination.Country == user.Details.Country && destination.City == user.Details.City;
-                    return isLocal ? ContributorRole.Local : ContributorRole.Visitor;
+                    return isLocal ? ContributorRole.Local : ContributorRole.Explorer;
 
 
                 default:
-                    return ContributorRole.Visitor;
+                    return ContributorRole.Explorer;
             }
         }
 

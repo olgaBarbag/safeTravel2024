@@ -13,6 +13,7 @@ using SafeTravelApp.Helpers;
 using SafeTravelApp.Repositories;
 using SafeTravelApp.Services;
 using Serilog;
+using System.Security.Claims;
 using System.Text;
 
 namespace SafeTravelApp
@@ -90,9 +91,9 @@ namespace SafeTravelApp
                     // US2BlUEkNFMy8yl0t6subj3cJKhAm7kQ7Asg7-mSwq0
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
                     //.GetBytes("US2BlUEkNFMy8yl0t6subj3cJKhAm7kQ7Asg7-mSwq0"))
-                    .GetBytes(jwtSettings["SecretKey"]!))
+                    .GetBytes(jwtSettings["SecretKey"]!)),
                     //.GetBytes(builder.Configuration["Authentication: SecretKey"]!))
-
+                    RoleClaimType = ClaimTypes.Role
                 };
             });
 

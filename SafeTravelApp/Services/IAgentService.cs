@@ -10,7 +10,7 @@ namespace SafeTravelApp.Services
 {
     public interface IAgentService
     {
-        Task<UserReadOnlyDTO> SignUpUserAsync(AgentSignUpDTO request);
+        Task<AgentDetailsReadOnlyDTO> SignUpUserAsync(AgentSignUpDTO request);
         Task<List<AgentReadOnlyDTO>> GetAllUsersAgentsAsync(int pageNumber, int pageSize);
         Task<List<AgentReadOnlyDTO>> GetAllUsersAgentsFilteredAsync(AgentDetailsFiltersDTO agentDetailsFiltersDTO);
 

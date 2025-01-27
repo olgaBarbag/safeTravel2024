@@ -27,7 +27,7 @@ namespace SafeTravelApp.Services
             _logger = new LoggerFactory().AddSerilog().CreateLogger<CitizenService>();
         }
 
-        public async Task<UserReadOnlyDTO> SignUpUserAsync(CitizenSignUpDTO request)
+        public async Task<CitizenDetailsReadOnlyDTO> SignUpUserAsync(CitizenSignUpDTO request)
         {
             Citizen citizen;
             User user;
@@ -45,6 +45,20 @@ namespace SafeTravelApp.Services
                 user.Password = EncryptionUtil.Encrypt(user.Password);
                 await _unitOfWork.UserRepository.AddAsync(user);
 
+                //if (user.Details == null)
+                //{
+                //    user.Details = new UserDetails
+                //    {
+                //        PhoneNumber = request.PhoneNumber!,
+                //        Country = request.Country!,
+                //        City = request.City!,
+                //        Address = request.Address,
+                //        PostalCode = request.PostalCode,
+                //        UserId = user.Id 
+                //    };
+                //    await _unitOfWork.DetailsRepository.AddAsync(user.Details);
+                //}
+
                 citizen = _mapper.Map<Citizen>(request);
 
                 await _unitOfWork.CitizenRepository.AddAsync(citizen);
@@ -52,7 +66,7 @@ namespace SafeTravelApp.Services
                 
                 await _unitOfWork.SaveAsync();
                 _logger.LogInformation("{Message}", "Citizen: " + citizen + " signed up successfully.");
-                return _mapper.Map<UserReadOnlyDTO>(user); ;
+                return _mapper.Map<CitizenDetailsReadOnlyDTO>(user); ;
             }
             catch (Exception ex)
             {
@@ -167,9 +181,9 @@ namespace SafeTravelApp.Services
             return citizenReadOnlyDTO;
         }
 
-        public async Task<CitizenReadOnlyDTO?> GetCitizenByUsernameAsync(string username)
+        public async Task<CitizenDetailsReadOnlyDTO?> GetCitizenByUsernameAsync(string username)
         {
-            CitizenReadOnlyDTO? citizenReadOnlyDTO = null;
+            CitizenDetailsReadOnlyDTO? citizenReadOnlyDTO = null;
 
             try
             {
@@ -181,7 +195,7 @@ namespace SafeTravelApp.Services
                     return null; ;
                 }
 
-                citizenReadOnlyDTO = _mapper.Map<CitizenReadOnlyDTO>(userCitizen);
+                citizenReadOnlyDTO = _mapper.Map<CitizenDetailsReadOnlyDTO>(userCitizen);
                 _logger.LogInformation("{Message}", "Citizen: " + username + " was found");
             }
             catch (Exception ex)

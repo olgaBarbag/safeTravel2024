@@ -4,6 +4,6 @@
     {
         Local,
         Traveler,
-        Visitor
+        Explorer
     }
 }

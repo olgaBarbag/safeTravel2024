@@ -1,0 +1,1215 @@
+[24-01-2025 09:36:35747 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[24-01-2025 09:36:36285 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[24-01-2025 09:36:36294 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[24-01-2025 09:36:36433 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[24-01-2025 09:36:36435 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[24-01-2025 09:36:36438 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[24-01-2025 09:36:36910 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[24-01-2025 09:36:37168 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 258.7759ms
+[24-01-2025 09:36:37178 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[24-01-2025 09:36:37202 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[24-01-2025 09:36:37212 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 34.6393ms
+[24-01-2025 09:36:37278 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 76.1954ms
+[24-01-2025 09:36:37524 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[24-01-2025 09:36:37561 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 36.7082ms
+[24-01-2025 09:38:22043 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json-patch+json" 55
+[24-01-2025 09:38:22067 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 09:38:27229 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[24-01-2025 09:38:27267 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 09:38:36022 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("388"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 09:38:36568 +02:00 SafeTravelApp.Services.UserService ] "User: magenta found and retrieved."
+[24-01-2025 09:38:36792 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[24-01-2025 09:38:36819 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 9543.9842ms
+[24-01-2025 09:38:36821 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[24-01-2025 09:38:36829 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 631 "application/json; charset=utf-8" 14783.2764ms
+[24-01-2025 09:39:13341 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - null null
+[24-01-2025 09:39:13357 +02:00 Microsoft.AspNetCore.Authorization.DefaultAuthorizationService ] Authorization failed. "These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Agent)"
+[24-01-2025 09:39:13365 +02:00 Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler ] AuthenticationScheme: "Bearer" was challenged.
+[24-01-2025 09:39:13367 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/agents/profile""" - 401 0 null 26.0195ms
+[24-01-2025 09:48:20007 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...
+[24-01-2025 10:02:17822 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[24-01-2025 10:02:18148 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[24-01-2025 10:02:18150 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[24-01-2025 10:02:18381 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[24-01-2025 10:02:18389 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[24-01-2025 10:02:18390 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[24-01-2025 10:02:18622 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[24-01-2025 10:02:18765 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 143.7726ms
+[24-01-2025 10:02:18791 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[24-01-2025 10:02:18791 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[24-01-2025 10:02:18829 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 37.7452ms
+[24-01-2025 10:02:18867 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 75.4346ms
+[24-01-2025 10:02:18969 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[24-01-2025 10:02:18996 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 27.791ms
+[24-01-2025 10:02:50926 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json-patch+json" 55
+[24-01-2025 10:02:50937 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 10:02:56656 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[24-01-2025 10:02:56677 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:03:05746 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("126"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:03:06901 +02:00 SafeTravelApp.Services.UserService ] "User: magenta found and retrieved."
+[24-01-2025 10:03:07401 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[24-01-2025 10:03:07683 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 10879.5076ms
+[24-01-2025 10:03:07702 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[24-01-2025 10:03:07718 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 631 "application/json; charset=utf-8" 16792.0233ms
+[24-01-2025 10:03:51610 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/magenta""" - null null
+[24-01-2025 10:03:51623 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 10:03:51630 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserAgentByUsername\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentReadOnlyDTO]] GetUserAgentByUsername(System.String)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:03:51820 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("40"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username], [d].[UserId], [d].[Address], [d].[City], [d].[Country], [d].[InsertedAt], [d].[ModifiedAt], [d].[PhoneNumber], [d].[PostalCode], [a].[Id], [a].[CompanyName], [a].[InsertedAt], [a].[ModifiedAt], [a].[UserId], [a].[VatNumber]
+FROM [Users] AS [u]
+LEFT JOIN [Details] AS [d] ON [u].[Id] = [d].[UserId]
+LEFT JOIN [Agents] AS [a] ON [u].[Id] = [a].[UserId]
+WHERE ([u].[UserRole] = N'Agent' AND [u].[Username] = @__username_0) OR [u].[Email] = @__username_0"
+[24-01-2025 10:03:51871 +02:00 SafeTravelApp.Services.AgentService ] "Agent: magenta was found"
+[24-01-2025 10:03:51885 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO"'.
+[24-01-2025 10:03:51892 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)" in 260.6655ms
+[24-01-2025 10:03:51894 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 10:03:51900 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/magenta""" - 200 250 "application/json; charset=utf-8" 289.7614ms
+[24-01-2025 10:10:58112 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...
+[24-01-2025 10:11:20034 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[24-01-2025 10:11:20291 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[24-01-2025 10:11:20351 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[24-01-2025 10:11:20415 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[24-01-2025 10:11:20498 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[24-01-2025 10:11:20500 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[24-01-2025 10:11:20590 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[24-01-2025 10:11:20723 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 134.858ms
+[24-01-2025 10:11:20742 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[24-01-2025 10:11:20746 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 4.4515ms
+[24-01-2025 10:11:20766 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[24-01-2025 10:11:20793 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 27.199ms
+[24-01-2025 10:11:20996 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[24-01-2025 10:11:21015 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 18.7255ms
+[24-01-2025 10:11:52835 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json-patch+json" 55
+[24-01-2025 10:11:52840 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 10:11:56437 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[24-01-2025 10:11:56459 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:12:01848 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("184"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:12:02541 +02:00 SafeTravelApp.Services.UserService ] "User: magenta found and retrieved."
+[24-01-2025 10:12:02855 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[24-01-2025 10:12:02908 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 6439.5486ms
+[24-01-2025 10:12:02911 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[24-01-2025 10:12:02927 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 631 "application/json; charset=utf-8" 10089.9556ms
+[24-01-2025 10:19:02099 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json-patch+json" 55
+[24-01-2025 10:19:02105 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 10:19:02108 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[24-01-2025 10:19:02109 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:19:02199 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("6"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:19:02340 +02:00 SafeTravelApp.Services.UserService ] "User: magenta found and retrieved."
+[24-01-2025 10:19:02347 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[24-01-2025 10:19:02350 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 236.2771ms
+[24-01-2025 10:19:02351 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[24-01-2025 10:19:02353 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 631 "application/json; charset=utf-8" 254.0695ms
+[24-01-2025 10:22:11211 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json-patch+json" 55
+[24-01-2025 10:22:11218 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 10:22:11224 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[24-01-2025 10:22:11226 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:22:11269 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("12"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:22:11415 +02:00 SafeTravelApp.Services.UserService ] "User: magenta found and retrieved."
+[24-01-2025 10:22:11416 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[24-01-2025 10:22:11418 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 190.0183ms
+[24-01-2025 10:22:11422 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[24-01-2025 10:22:11423 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 631 "application/json; charset=utf-8" 212.3418ms
+[24-01-2025 10:22:20148 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...
+[24-01-2025 10:30:01294 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[24-01-2025 10:30:02009 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[24-01-2025 10:30:02141 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[24-01-2025 10:30:02340 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[24-01-2025 10:30:02342 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[24-01-2025 10:30:02344 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[24-01-2025 10:30:02415 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[24-01-2025 10:30:02613 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 199.7796ms
+[24-01-2025 10:30:02631 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[24-01-2025 10:30:02648 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 17.3017ms
+[24-01-2025 10:30:02657 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[24-01-2025 10:30:02698 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 41.2804ms
+[24-01-2025 10:30:02934 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[24-01-2025 10:30:02982 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 47.9726ms
+[24-01-2025 10:30:30391 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - "application/json-patch+json" 55
+[24-01-2025 10:30:30409 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 10:30:36734 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[24-01-2025 10:30:36986 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"LoginUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.JwtTokenDTO]] LoginUserAsync(SafeTravelApp.DTO.User.UserLoginDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:30:43896 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("215"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:30:45245 +02:00 SafeTravelApp.Services.UserService ] "User: magenta found and retrieved."
+[24-01-2025 10:30:45607 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.JwtTokenDTO"'.
+[24-01-2025 10:30:45692 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)" in 8628.7171ms
+[24-01-2025 10:30:45761 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.LoginUserAsync (SafeTravelApp)"'
+[24-01-2025 10:30:45769 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/login""" - 200 631 "application/json; charset=utf-8" 15376.8009ms
+[24-01-2025 10:42:07766 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 342
+[24-01-2025 10:42:07780 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 10:42:07786 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 10:42:07804 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:42:07859 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[24-01-2025 10:42:07911 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 102.3189ms
+[24-01-2025 10:42:07916 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 10:42:07919 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 243 "application/problem+json; charset=utf-8" 152.9854ms
+[24-01-2025 10:46:19761 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 339
+[24-01-2025 10:46:19771 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 10:46:19778 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 10:46:19782 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:46:19890 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("7"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:46:19895 +02:00 SafeTravelApp.Services.UserService ] "User: Vagia was found successfully."
+[24-01-2025 10:46:19908 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("3"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:46:20372 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("56"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[24-01-2025 10:46:20441 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("42"ms) [Parameters=["@p6='?' (Size = 450), @p7='?' (DbType = Int32), @p8='?' (Size = 10)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Agents] ([CompanyName], [UserId], [VatNumber])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);"
+[24-01-2025 10:46:20473 +02:00 Microsoft.EntityFrameworkCore.Update ] An exception occurred in the database while saving changes for context type '"SafeTravelApp.Data.SafeTravelAppDbContext"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Agents' with unique index 'IX_Agents_VatNumber'. The duplicate key value is (1234567890).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:64a6ed4f-0eed-4182-b5b9-cef305b34211
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Agents' with unique index 'IX_Agents_VatNumber'. The duplicate key value is (1234567890).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:64a6ed4f-0eed-4182-b5b9-cef305b34211
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[24-01-2025 10:46:20504 +02:00 SafeTravelApp.Services.AgentService ] "An error occurred while saving the entity changes. See the inner exception for details.""   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at SafeTravelApp.Repositories.UnitOfWork.SaveAsync() in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Repositories\UnitOfWork.cs:line 33
+   at SafeTravelApp.Services.AgentService.SignUpUserAsync(AgentSignUpDTO request) in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Services\AgentService.cs:line 52"
+[24-01-2025 10:46:20518 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 732.1518ms
+[24-01-2025 10:46:20525 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 10:46:20530 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 500 null "application/json" 768.4331ms
+[24-01-2025 10:46:40832 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 339
+[24-01-2025 10:46:40839 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 10:46:40841 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 10:46:40844 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:46:40888 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:46:40893 +02:00 SafeTravelApp.Services.UserService ] "User: Vagia was found successfully."
+[24-01-2025 10:46:40899 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:46:41087 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("2"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[24-01-2025 10:46:41091 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@p6='?' (Size = 450), @p7='?' (DbType = Int32), @p8='?' (Size = 10)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Agents] ([CompanyName], [UserId], [VatNumber])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);"
+[24-01-2025 10:46:41096 +02:00 Microsoft.EntityFrameworkCore.Update ] An exception occurred in the database while saving changes for context type '"SafeTravelApp.Data.SafeTravelAppDbContext"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Agents' with unique index 'IX_Agents_VatNumber'. The duplicate key value is (1234567890).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:64a6ed4f-0eed-4182-b5b9-cef305b34211
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Agents' with unique index 'IX_Agents_VatNumber'. The duplicate key value is (1234567890).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:64a6ed4f-0eed-4182-b5b9-cef305b34211
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[24-01-2025 10:46:41105 +02:00 SafeTravelApp.Services.AgentService ] "An error occurred while saving the entity changes. See the inner exception for details.""   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at SafeTravelApp.Repositories.UnitOfWork.SaveAsync() in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Repositories\UnitOfWork.cs:line 33
+   at SafeTravelApp.Services.AgentService.SignUpUserAsync(AgentSignUpDTO request) in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Services\AgentService.cs:line 52"
+[24-01-2025 10:46:41107 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 258.9026ms
+[24-01-2025 10:46:41109 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 10:46:41110 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 500 null "application/json" 278.7882ms
+[24-01-2025 10:46:51907 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[24-01-2025 10:46:51932 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 10:46:51947 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserAgentByUsername\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO]] GetUserAgentByUsername(System.String)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:46:52048 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("15"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username], [d].[UserId], [d].[Address], [d].[City], [d].[Country], [d].[InsertedAt], [d].[ModifiedAt], [d].[PhoneNumber], [d].[PostalCode], [a].[Id], [a].[CompanyName], [a].[InsertedAt], [a].[ModifiedAt], [a].[UserId], [a].[VatNumber]
+FROM [Users] AS [u]
+LEFT JOIN [Details] AS [d] ON [u].[Id] = [d].[UserId]
+LEFT JOIN [Agents] AS [a] ON [u].[Id] = [a].[UserId]
+WHERE ([u].[UserRole] = N'Agent' AND [u].[Username] = @__username_0) OR [u].[Email] = @__username_0"
+[24-01-2025 10:46:52052 +02:00 SafeTravelApp.Services.AgentService ] "Agent: registrationwas not found"
+[24-01-2025 10:46:52054 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)" in 101.3997ms
+[24-01-2025 10:46:52057 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 10:46:52059 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/registration""" - 404 null "application/json" 151.9907ms
+[24-01-2025 10:46:52211 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/favicon.ico""" - null null
+[24-01-2025 10:46:52216 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/favicon.ico""" - 404 0 null 5.0623ms
+[24-01-2025 10:46:52224 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/favicon.ico", Response status code: 404
+[24-01-2025 10:47:05748 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 339
+[24-01-2025 10:47:05755 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 10:47:05756 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 10:47:05758 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:47:05783 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("7"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:47:05786 +02:00 SafeTravelApp.Services.UserService ] "User: Vagia was found successfully."
+[24-01-2025 10:47:05789 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:47:05942 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("16"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[24-01-2025 10:47:05965 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("10"ms) [Parameters=["@p6='?' (Size = 450), @p7='?' (DbType = Int32), @p8='?' (Size = 10)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Agents] ([CompanyName], [UserId], [VatNumber])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);"
+[24-01-2025 10:47:05971 +02:00 Microsoft.EntityFrameworkCore.Update ] An exception occurred in the database while saving changes for context type '"SafeTravelApp.Data.SafeTravelAppDbContext"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Agents' with unique index 'IX_Agents_VatNumber'. The duplicate key value is (1234567890).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:64a6ed4f-0eed-4182-b5b9-cef305b34211
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Agents' with unique index 'IX_Agents_VatNumber'. The duplicate key value is (1234567890).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:64a6ed4f-0eed-4182-b5b9-cef305b34211
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[24-01-2025 10:47:05978 +02:00 SafeTravelApp.Services.AgentService ] "An error occurred while saving the entity changes. See the inner exception for details.""   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at SafeTravelApp.Repositories.UnitOfWork.SaveAsync() in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Repositories\UnitOfWork.cs:line 33
+   at SafeTravelApp.Services.AgentService.SignUpUserAsync(AgentSignUpDTO request) in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Services\AgentService.cs:line 52"
+[24-01-2025 10:47:05979 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 219.3985ms
+[24-01-2025 10:47:05980 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 10:47:05981 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 500 null "application/json" 233.1759ms
+[24-01-2025 10:48:06722 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 340
+[24-01-2025 10:48:06729 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 10:48:06731 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 10:48:06733 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:48:06754 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("7"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:48:06757 +02:00 SafeTravelApp.Services.UserService ] "User: Vagia was found successfully."
+[24-01-2025 10:48:06760 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:48:06909 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("6"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[24-01-2025 10:48:06928 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("16"ms) [Parameters=["@p6='?' (Size = 450), @p7='?' (DbType = Int32), @p8='?' (Size = 10)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Agents] ([CompanyName], [UserId], [VatNumber])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);"
+[24-01-2025 10:48:06947 +02:00 SafeTravelApp.Services.AgentService ] "Agent: SafeTravelApp.Data.Agent signed up successfully."
+[24-01-2025 10:48:06953 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "CreatedAtActionResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 10:48:06988 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 250.2187ms
+[24-01-2025 10:48:06990 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 10:48:06992 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 201 271 "application/json; charset=utf-8" 269.4548ms
+[24-01-2025 10:54:06335 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/citizen/registration""" - "application/json-patch+json" 371
+[24-01-2025 10:54:06344 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 10:54:06356 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)"'
+[24-01-2025 10:54:06373 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserCitizen\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserCitizenAsync(SafeTravelApp.DTO.Citizen.CitizenSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:54:06435 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("8"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:54:06441 +02:00 SafeTravelApp.Services.UserService ] "User: Daria was found successfully."
+[24-01-2025 10:54:06452 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("2"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 10:54:06678 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("4"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[24-01-2025 10:54:06696 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("11"ms) [Parameters=["@p6='?' (DbType = Date), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Citizens] ([BirthDate], [Gender], [Occupation], [UserId])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8, @p9);"
+[24-01-2025 10:54:06705 +02:00 SafeTravelApp.Services.CitizenService ] "Citizen: SafeTravelApp.Data.Citizen signed up successfully."
+[24-01-2025 10:54:06709 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "CreatedAtActionResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 10:54:06711 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)" in 332.0151ms
+[24-01-2025 10:54:06713 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)"'
+[24-01-2025 10:54:06714 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/citizen/registration""" - 201 282 "application/json; charset=utf-8" 379.1141ms
+[24-01-2025 10:55:04847 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/54""" - null null
+[24-01-2025 10:55:04853 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 10:55:04862 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserById\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] GetUserById(Int32)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 10:55:04908 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("10"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0"
+[24-01-2025 10:55:04913 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 54 was found successfully."
+[24-01-2025 10:55:04916 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 10:55:04917 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)" in 50.8323ms
+[24-01-2025 10:55:04918 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 10:55:04919 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/54""" - 200 282 "application/json; charset=utf-8" 71.4452ms
+[24-01-2025 11:01:06177 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/54""" - null null
+[24-01-2025 11:01:06190 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 11:01:06195 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserById\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] GetUserById(Int32)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 11:01:06242 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("9"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0"
+[24-01-2025 11:01:06248 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 54 was found successfully."
+[24-01-2025 11:01:06256 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 11:01:06260 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)" in 58.4011ms
+[24-01-2025 11:01:06264 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 11:01:06267 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/54""" - 200 282 "application/json; charset=utf-8" 89.87ms
+[24-01-2025 11:01:14363 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[24-01-2025 11:01:14387 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 24.5363ms
+[24-01-2025 11:01:14436 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[24-01-2025 11:01:14450 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 13.3931ms
+[24-01-2025 11:01:14471 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[24-01-2025 11:01:14502 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 31.3831ms
+[24-01-2025 11:01:14879 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[24-01-2025 11:01:14920 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 41.3939ms
+[24-01-2025 11:01:29955 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/54""" - null null
+[24-01-2025 11:01:29977 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 11:01:29979 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserById\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] GetUserById(Int32)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 11:01:29998 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("6"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0"
+[24-01-2025 11:01:30002 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 54 was found successfully."
+[24-01-2025 11:01:30007 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 11:01:30010 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)" in 27.457ms
+[24-01-2025 11:01:30013 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 11:01:30015 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/54""" - 200 282 "application/json; charset=utf-8" 60.8727ms
+[24-01-2025 11:01:43241 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...
+[24-01-2025 11:04:38506 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[24-01-2025 11:04:39112 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[24-01-2025 11:04:39191 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[24-01-2025 11:04:39337 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[24-01-2025 11:04:39543 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[24-01-2025 11:04:39544 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[24-01-2025 11:04:39636 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[24-01-2025 11:04:39895 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 260.3774ms
+[24-01-2025 11:04:39913 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[24-01-2025 11:04:39927 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 14.1536ms
+[24-01-2025 11:04:39940 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[24-01-2025 11:04:39988 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 48.8668ms
+[24-01-2025 11:04:40145 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[24-01-2025 11:04:40183 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 37.1952ms
+[24-01-2025 11:05:04928 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/54""" - null null
+[24-01-2025 11:05:11149 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 11:05:11184 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserById\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] GetUserById(Int32)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 11:05:19969 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("123"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0"
+[24-01-2025 11:05:20078 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 54 was found successfully."
+[24-01-2025 11:05:20091 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 11:05:20161 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)" in 8970.8842ms
+[24-01-2025 11:05:20213 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 11:05:20488 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/54""" - 200 277 "application/json; charset=utf-8" 15560.142ms
+[24-01-2025 11:33:05848 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...
+[24-01-2025 12:06:38559 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[24-01-2025 12:06:39154 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[24-01-2025 12:06:39166 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[24-01-2025 12:06:39437 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[24-01-2025 12:06:39445 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[24-01-2025 12:06:39441 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[24-01-2025 12:06:39449 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[24-01-2025 12:06:39811 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 376.1162ms
+[24-01-2025 12:06:39858 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[24-01-2025 12:06:39865 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 6.8683ms
+[24-01-2025 12:06:39877 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[24-01-2025 12:06:39910 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 32.6098ms
+[24-01-2025 12:06:40285 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[24-01-2025 12:06:40329 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 43.6397ms
+[24-01-2025 12:08:07892 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...
+[24-01-2025 12:08:40384 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[24-01-2025 12:08:40736 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[24-01-2025 12:08:40766 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[24-01-2025 12:08:40826 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[24-01-2025 12:08:40828 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[24-01-2025 12:08:40849 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[24-01-2025 12:08:41108 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[24-01-2025 12:08:41227 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 118.782ms
+[24-01-2025 12:08:41248 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[24-01-2025 12:08:41259 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 11.5377ms
+[24-01-2025 12:08:41273 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[24-01-2025 12:08:41303 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 29.7204ms
+[24-01-2025 12:08:41378 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[24-01-2025 12:08:41396 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 17.9956ms
+[24-01-2025 12:09:09363 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/53""" - null null
+[24-01-2025 12:09:18631 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 12:09:18731 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserById\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] GetUserById(Int32)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 12:09:29968 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1,677"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0"
+[24-01-2025 12:09:30360 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 53 was found successfully."
+[24-01-2025 12:09:30808 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 12:09:30867 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)" in 12122.6111ms
+[24-01-2025 12:09:31641 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 12:09:32642 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/53""" - 200 266 "application/json; charset=utf-8" 23277.5359ms
+[24-01-2025 12:18:06202 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 358
+[24-01-2025 12:18:06216 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 12:18:06220 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 12:18:06226 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 12:18:06333 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("7"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 12:18:06337 +02:00 SafeTravelApp.Services.UserService ] "User: test was found successfully."
+[24-01-2025 12:18:06346 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("3"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 12:18:06801 +02:00 SafeTravelApp.Services.AgentService ] "Value cannot be null. (Parameter 'entity')""   at Microsoft.EntityFrameworkCore.Utilities.Check.NotNull[T](T value, String parameterName)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.AddAsync(TEntity entity, CancellationToken cancellationToken)
+   at SafeTravelApp.Repositories.BaseRepository`2.AddAsync(T entity) in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Repositories\BaseRepository.cs:line 21
+   at SafeTravelApp.Services.AgentService.SignUpUserAsync(AgentSignUpDTO request) in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Services\AgentService.cs:line 48"
+[24-01-2025 12:18:06803 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 572.2943ms
+[24-01-2025 12:18:06805 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 12:18:06812 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 500 null "application/json" 609.7762ms
+[24-01-2025 12:45:45225 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 358
+[24-01-2025 12:45:45229 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 12:45:45234 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 12:45:45235 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 12:45:45287 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("13"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 12:45:45289 +02:00 SafeTravelApp.Services.UserService ] "User: test was found successfully."
+[24-01-2025 12:45:45292 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 12:45:45476 +02:00 SafeTravelApp.Services.AgentService ] "Value cannot be null. (Parameter 'entity')""   at Microsoft.EntityFrameworkCore.Utilities.Check.NotNull[T](T value, String parameterName)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.AddAsync(TEntity entity, CancellationToken cancellationToken)
+   at SafeTravelApp.Repositories.BaseRepository`2.AddAsync(T entity) in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Repositories\BaseRepository.cs:line 21
+   at SafeTravelApp.Services.AgentService.SignUpUserAsync(AgentSignUpDTO request) in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Services\AgentService.cs:line 48"
+[24-01-2025 12:45:45478 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 240.2938ms
+[24-01-2025 12:45:45479 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 12:45:45481 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 500 null "application/json" 255.4842ms
+[24-01-2025 12:50:06758 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/registration""" - null null
+[24-01-2025 12:50:06772 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 12:50:06777 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserAgentByUsername\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO]] GetUserAgentByUsername(System.String)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 12:50:06869 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("33"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username], [d].[UserId], [d].[Address], [d].[City], [d].[Country], [d].[InsertedAt], [d].[ModifiedAt], [d].[PhoneNumber], [d].[PostalCode], [a].[Id], [a].[CompanyName], [a].[InsertedAt], [a].[ModifiedAt], [a].[UserId], [a].[VatNumber]
+FROM [Users] AS [u]
+LEFT JOIN [Details] AS [d] ON [u].[Id] = [d].[UserId]
+LEFT JOIN [Agents] AS [a] ON [u].[Id] = [a].[UserId]
+WHERE ([u].[UserRole] = N'Agent' AND [u].[Username] = @__username_0) OR [u].[Email] = @__username_0"
+[24-01-2025 12:50:06875 +02:00 SafeTravelApp.Services.AgentService ] "Agent: registrationwas not found"
+[24-01-2025 12:50:06878 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)" in 96.1785ms
+[24-01-2025 12:50:06882 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 12:50:06884 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/registration""" - 404 null "application/json" 126.5483ms
+[24-01-2025 12:50:45971 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 358
+[24-01-2025 12:50:45976 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 12:50:45977 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 12:50:45979 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 12:50:46001 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("14"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 12:50:46005 +02:00 SafeTravelApp.Services.UserService ] "User: test was found successfully."
+[24-01-2025 12:50:46009 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 12:50:46176 +02:00 SafeTravelApp.Services.AgentService ] "Value cannot be null. (Parameter 'entity')""   at Microsoft.EntityFrameworkCore.Utilities.Check.NotNull[T](T value, String parameterName)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.AddAsync(TEntity entity, CancellationToken cancellationToken)
+   at SafeTravelApp.Repositories.BaseRepository`2.AddAsync(T entity) in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Repositories\BaseRepository.cs:line 21
+   at SafeTravelApp.Services.AgentService.SignUpUserAsync(AgentSignUpDTO request) in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Services\AgentService.cs:line 48"
+[24-01-2025 12:50:46179 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 197.156ms
+[24-01-2025 12:50:46180 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 12:50:46182 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 500 null "application/json" 210.6079ms
+[24-01-2025 13:01:52740 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...
+[24-01-2025 13:16:32720 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[24-01-2025 13:16:33108 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[24-01-2025 13:16:33422 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[24-01-2025 13:16:33501 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[24-01-2025 13:16:33649 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[24-01-2025 13:16:33748 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[24-01-2025 13:16:36657 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[24-01-2025 13:16:37606 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 949.5423ms
+[24-01-2025 13:16:40810 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[24-01-2025 13:16:40815 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 5.4428ms
+[24-01-2025 13:16:41048 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[24-01-2025 13:16:41073 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 24.3669ms
+[24-01-2025 13:16:43684 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[24-01-2025 13:16:43704 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 19.2043ms
+[24-01-2025 13:19:26218 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 358
+[24-01-2025 13:19:26229 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 13:19:34225 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 13:19:34252 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 13:19:42029 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("258"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 13:19:42099 +02:00 SafeTravelApp.Services.UserService ] "User: test was found successfully."
+[24-01-2025 13:19:42111 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("2"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 13:19:43515 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("8"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[24-01-2025 13:19:43760 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("17"ms) [Parameters=["@p6='?' (Size = 450), @p7='?' (DbType = Int32), @p8='?' (Size = 10), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (Size = 10), @p14='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Agents] ([CompanyName], [UserId], [VatNumber])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);
+INSERT INTO [Details] ([UserId], [Address], [City], [Country], [PhoneNumber], [PostalCode])
+OUTPUT INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p9, @p10, @p11, @p12, @p13, @p14);"
+[24-01-2025 13:19:43841 +02:00 SafeTravelApp.Services.AgentService ] "Agent: SafeTravelApp.Data.Agent signed up successfully."
+[24-01-2025 13:19:43976 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "CreatedAtActionResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 13:19:44005 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 9747.7133ms
+[24-01-2025 13:19:44094 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 13:19:44100 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 201 301 "application/json; charset=utf-8" 17880.482ms
+[24-01-2025 13:20:04696 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/55""" - null null
+[24-01-2025 13:20:04725 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 13:20:04741 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserById\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] GetUserById(Int32)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 13:20:04933 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("9"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0"
+[24-01-2025 13:20:04945 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 55 was found successfully."
+[24-01-2025 13:20:04950 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 13:20:04952 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)" in 206.3356ms
+[24-01-2025 13:20:04953 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 13:20:04955 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/55""" - 200 258 "application/json; charset=utf-8" 259.2887ms
+[24-01-2025 14:15:30022 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...
+[24-01-2025 14:16:46152 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[24-01-2025 14:16:46516 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[24-01-2025 14:16:46523 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[24-01-2025 14:16:46704 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[24-01-2025 14:16:46921 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[24-01-2025 14:16:46926 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[24-01-2025 14:16:47028 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[24-01-2025 14:16:47254 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 227.1955ms
+[24-01-2025 14:16:47269 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[24-01-2025 14:16:47281 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 12.7573ms
+[24-01-2025 14:16:47310 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[24-01-2025 14:16:47406 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 94.8492ms
+[24-01-2025 14:16:47723 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[24-01-2025 14:16:47815 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 91.5244ms
+[24-01-2025 14:19:49160 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 336
+[24-01-2025 14:19:49186 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 14:19:54942 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 14:19:56341 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 14:20:10388 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[24-01-2025 14:20:10735 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 14387.6861ms
+[24-01-2025 14:20:11593 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 14:20:11594 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 250 "application/problem+json; charset=utf-8" 22433.2972ms
+[24-01-2025 14:20:48524 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 336
+[24-01-2025 14:20:48532 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 14:20:48534 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 14:20:48535 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 14:20:48583 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'.
+[24-01-2025 14:20:48587 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 49.6212ms
+[24-01-2025 14:20:48591 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 14:20:48594 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 400 250 "application/problem+json; charset=utf-8" 68.2696ms
+[24-01-2025 14:21:07218 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 339
+[24-01-2025 14:21:07246 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 14:21:07250 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 14:21:07252 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 14:21:14073 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("353"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 14:21:14095 +02:00 SafeTravelApp.Services.UserService ] "User: test1 was found successfully."
+[24-01-2025 14:21:14120 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("4"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 14:21:15744 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("579"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[24-01-2025 14:21:15791 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("20"ms) [Parameters=["@p6='?' (Size = 450), @p7='?' (DbType = Int32), @p8='?' (Size = 10), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (Size = 10), @p14='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Agents] ([CompanyName], [UserId], [VatNumber])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);
+INSERT INTO [Details] ([UserId], [Address], [City], [Country], [PhoneNumber], [PostalCode])
+OUTPUT INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p9, @p10, @p11, @p12, @p13, @p14);"
+[24-01-2025 14:21:15867 +02:00 SafeTravelApp.Services.AgentService ] "Agent: SafeTravelApp.Data.Agent signed up successfully."
+[24-01-2025 14:21:15889 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "CreatedAtActionResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 14:21:15909 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 8653.2047ms
+[24-01-2025 14:21:15914 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 14:21:15920 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 201 312 "application/json; charset=utf-8" 8702.0628ms
+[24-01-2025 14:25:19859 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/citizen/registration""" - "application/json-patch+json" 356
+[24-01-2025 14:25:19869 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 14:25:19871 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)"'
+[24-01-2025 14:25:19881 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserCitizen\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] SignupUserCitizenAsync(SafeTravelApp.DTO.Citizen.CitizenSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 14:25:20007 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("13"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 14:25:20012 +02:00 SafeTravelApp.Services.UserService ] "User: test2 was found successfully."
+[24-01-2025 14:25:20021 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 14:25:20423 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("6"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[24-01-2025 14:25:20445 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("14"ms) [Parameters=["@p6='?' (DbType = Date), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (Size = 10), @p15='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Citizens] ([BirthDate], [Gender], [Occupation], [UserId])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8, @p9);
+INSERT INTO [Details] ([UserId], [Address], [City], [Country], [PhoneNumber], [PostalCode])
+OUTPUT INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p10, @p11, @p12, @p13, @p14, @p15);"
+[24-01-2025 14:25:20457 +02:00 SafeTravelApp.Services.CitizenService ] "Citizen: SafeTravelApp.Data.Citizen signed up successfully."
+[24-01-2025 14:25:20465 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "CreatedAtActionResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 14:25:20469 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)" in 585.5667ms
+[24-01-2025 14:25:20473 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)"'
+[24-01-2025 14:25:20475 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/citizen/registration""" - 201 300 "application/json; charset=utf-8" 615.7268ms
+[24-01-2025 14:28:39097 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/57""" - null null
+[24-01-2025 14:28:39099 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 14:28:39106 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserById\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] GetUserById(Int32)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 14:28:39203 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("39"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0"
+[24-01-2025 14:28:39215 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 57 was found successfully."
+[24-01-2025 14:28:39219 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 14:28:39220 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)" in 112.156ms
+[24-01-2025 14:28:39221 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 14:28:39222 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/57""" - 200 264 "application/json; charset=utf-8" 125.302ms
+[24-01-2025 14:54:59501 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...
+[24-01-2025 14:56:08849 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[24-01-2025 14:56:09637 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[24-01-2025 14:56:09643 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[24-01-2025 14:56:09819 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[24-01-2025 14:56:09965 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[24-01-2025 14:56:09967 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[24-01-2025 14:56:10055 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[24-01-2025 14:56:10253 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 198.7964ms
+[24-01-2025 14:56:10270 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[24-01-2025 14:56:10278 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 8.0211ms
+[24-01-2025 14:56:10287 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[24-01-2025 14:56:10321 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 33.8288ms
+[24-01-2025 14:56:10584 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[24-01-2025 14:56:10648 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 64.5223ms
+[24-01-2025 14:56:21703 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/57""" - null null
+[24-01-2025 14:56:25675 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 14:56:25706 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserById\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] GetUserById(Int32)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 14:56:34279 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("322"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username], [d].[UserId], [d].[Address], [d].[City], [d].[Country], [d].[InsertedAt], [d].[ModifiedAt], [d].[PhoneNumber], [d].[PostalCode]
+FROM [Users] AS [u]
+LEFT JOIN [Details] AS [d] ON [u].[Id] = [d].[UserId]
+WHERE [u].[Id] = @__id_0"
+[24-01-2025 14:56:34714 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 57 was found successfully."
+[24-01-2025 14:56:36035 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 14:56:36152 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)" in 10441.1497ms
+[24-01-2025 14:56:37472 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 14:56:37479 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/57""" - 200 300 "application/json; charset=utf-8" 15775.3308ms
+[24-01-2025 14:57:30889 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/test1""" - null null
+[24-01-2025 14:57:30898 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 14:57:30910 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserAgentByUsername\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO]] GetUserAgentByUsername(System.String)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 14:57:31055 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("10"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username], [d].[UserId], [d].[Address], [d].[City], [d].[Country], [d].[InsertedAt], [d].[ModifiedAt], [d].[PhoneNumber], [d].[PostalCode], [a].[Id], [a].[CompanyName], [a].[InsertedAt], [a].[ModifiedAt], [a].[UserId], [a].[VatNumber]
+FROM [Users] AS [u]
+LEFT JOIN [Details] AS [d] ON [u].[Id] = [d].[UserId]
+LEFT JOIN [Agents] AS [a] ON [u].[Id] = [a].[UserId]
+WHERE ([u].[UserRole] = N'Agent' AND [u].[Username] = @__username_0) OR [u].[Email] = @__username_0"
+[24-01-2025 14:57:31092 +02:00 SafeTravelApp.Services.AgentService ] "Agent: test1 was found"
+[24-01-2025 14:57:31094 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO"'.
+[24-01-2025 14:57:31099 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)" in 187.3777ms
+[24-01-2025 14:57:31101 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 14:57:31102 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/test1""" - 200 292 "application/json; charset=utf-8" 212.6051ms
+[24-01-2025 14:57:45357 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/test2""" - null null
+[24-01-2025 14:57:45363 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 14:57:45365 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserAgentByUsername\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO]] GetUserAgentByUsername(System.String)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 14:57:45428 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username], [d].[UserId], [d].[Address], [d].[City], [d].[Country], [d].[InsertedAt], [d].[ModifiedAt], [d].[PhoneNumber], [d].[PostalCode], [a].[Id], [a].[CompanyName], [a].[InsertedAt], [a].[ModifiedAt], [a].[UserId], [a].[VatNumber]
+FROM [Users] AS [u]
+LEFT JOIN [Details] AS [d] ON [u].[Id] = [d].[UserId]
+LEFT JOIN [Agents] AS [a] ON [u].[Id] = [a].[UserId]
+WHERE ([u].[UserRole] = N'Agent' AND [u].[Username] = @__username_0) OR [u].[Email] = @__username_0"
+[24-01-2025 14:57:45434 +02:00 SafeTravelApp.Services.AgentService ] "Agent: test2was not found"
+[24-01-2025 14:57:45439 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)" in 71.567ms
+[24-01-2025 14:57:45441 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 14:57:45450 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/test2""" - 404 null "application/json" 92.4632ms
+[24-01-2025 14:58:11216 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/citizen/test2""" - null null
+[24-01-2025 14:58:11222 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserCitizenByUsername (SafeTravelApp)"'
+[24-01-2025 14:58:11229 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserCitizenByUsername\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentReadOnlyDTO]] GetUserCitizenByUsername(System.String)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 14:58:11284 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("17"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username], [d].[UserId], [d].[Address], [d].[City], [d].[Country], [d].[InsertedAt], [d].[ModifiedAt], [d].[PhoneNumber], [d].[PostalCode], [c].[Id], [c].[BirthDate], [c].[Gender], [c].[InsertedAt], [c].[ModifiedAt], [c].[Occupation], [c].[UserId]
+FROM [Users] AS [u]
+LEFT JOIN [Details] AS [d] ON [u].[Id] = [d].[UserId]
+LEFT JOIN [Citizens] AS [c] ON [u].[Id] = [c].[UserId]
+WHERE ([u].[UserRole] = N'Citizen' AND [u].[Username] = @__username_0) OR [u].[Email] = @__username_0"
+[24-01-2025 14:58:11318 +02:00 SafeTravelApp.Services.CitizenService ] "Citizen: test2 was found"
+[24-01-2025 14:58:11322 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.Citizen.CitizenReadOnlyDTO"'.
+[24-01-2025 14:58:11328 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserCitizenByUsername (SafeTravelApp)" in 96.1537ms
+[24-01-2025 14:58:11330 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserCitizenByUsername (SafeTravelApp)"'
+[24-01-2025 14:58:11331 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/citizen/test2""" - 200 166 "application/json; charset=utf-8" 115.3691ms
+[24-01-2025 14:58:22493 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/test1""" - null null
+[24-01-2025 14:58:22498 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 14:58:22501 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserAgentByUsername\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO]] GetUserAgentByUsername(System.String)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 14:58:22524 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("10"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username], [d].[UserId], [d].[Address], [d].[City], [d].[Country], [d].[InsertedAt], [d].[ModifiedAt], [d].[PhoneNumber], [d].[PostalCode], [a].[Id], [a].[CompanyName], [a].[InsertedAt], [a].[ModifiedAt], [a].[UserId], [a].[VatNumber]
+FROM [Users] AS [u]
+LEFT JOIN [Details] AS [d] ON [u].[Id] = [d].[UserId]
+LEFT JOIN [Agents] AS [a] ON [u].[Id] = [a].[UserId]
+WHERE ([u].[UserRole] = N'Agent' AND [u].[Username] = @__username_0) OR [u].[Email] = @__username_0"
+[24-01-2025 14:58:22532 +02:00 SafeTravelApp.Services.AgentService ] "Agent: test1 was found"
+[24-01-2025 14:58:22533 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO"'.
+[24-01-2025 14:58:22535 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)" in 32.1215ms
+[24-01-2025 14:58:22537 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 14:58:22540 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/test1""" - 200 292 "application/json; charset=utf-8" 47.0938ms
+[24-01-2025 15:23:05042 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...
+[24-01-2025 15:26:35954 +02:00 Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager ] User profile is available. Using '"C:\Users\obarbagiannidou\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+[24-01-2025 15:26:37085 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[24-01-2025 15:26:37093 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[24-01-2025 15:26:37325 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[24-01-2025 15:26:37469 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[24-01-2025 15:26:37470 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp"
+[24-01-2025 15:26:37538 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[24-01-2025 15:26:37770 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 232.817ms
+[24-01-2025 15:26:37786 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[24-01-2025 15:26:37793 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13778 "application/javascript; charset=utf-8" 7.7326ms
+[24-01-2025 15:26:37804 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[24-01-2025 15:26:37839 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 34.6162ms
+[24-01-2025 15:26:37912 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[24-01-2025 15:26:37960 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 48.0356ms
+[24-01-2025 15:29:07241 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 347
+[24-01-2025 15:29:07253 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 15:29:14142 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 15:29:14175 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 15:29:30015 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("644"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 15:29:30110 +02:00 SafeTravelApp.Services.UserService ] "User: test3 was found successfully."
+[24-01-2025 15:29:30230 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("62"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 15:29:32332 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("276"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[24-01-2025 15:29:33655 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("223"ms) [Parameters=["@p6='?' (Size = 450), @p7='?' (DbType = Int32), @p8='?' (Size = 10), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (Size = 10), @p14='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Agents] ([CompanyName], [UserId], [VatNumber])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);
+INSERT INTO [Details] ([UserId], [Address], [City], [Country], [PhoneNumber], [PostalCode])
+OUTPUT INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p9, @p10, @p11, @p12, @p13, @p14);"
+[24-01-2025 15:29:33854 +02:00 Microsoft.EntityFrameworkCore.Update ] An exception occurred in the database while saving changes for context type '"SafeTravelApp.Data.SafeTravelAppDbContext"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Agents' with unique index 'IX_Agents_VatNumber'. The duplicate key value is (3957257340).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:f6010493-eaf0-4af0-af18-6993ffb1fb26
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Agents' with unique index 'IX_Agents_VatNumber'. The duplicate key value is (3957257340).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:f6010493-eaf0-4af0-af18-6993ffb1fb26
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[24-01-2025 15:29:33883 +02:00 SafeTravelApp.Services.AgentService ] "An error occurred while saving the entity changes. See the inner exception for details.""   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at SafeTravelApp.Repositories.UnitOfWork.SaveAsync() in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Repositories\UnitOfWork.cs:line 37
+   at SafeTravelApp.Services.AgentService.SignUpUserAsync(AgentSignUpDTO request) in C:\Users\obarbagiannidou\OneDrive - Nexi Group\Desktop\CF6\Final Project\SafeTravelApp\SafeTravelApp\Services\AgentService.cs:line 67"
+[24-01-2025 15:29:33891 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 19220.3805ms
+[24-01-2025 15:29:33893 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 15:29:33906 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 500 null "application/json" 26664.6579ms
+[24-01-2025 15:30:10815 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - "application/json-patch+json" 347
+[24-01-2025 15:30:10822 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 15:30:10825 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 15:30:10826 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserAgent\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO]] SignupUserAgentAsync(SafeTravelApp.DTO.Agent.AgentSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 15:30:10911 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("21"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 15:30:10914 +02:00 SafeTravelApp.Services.UserService ] "User: test3 was found successfully."
+[24-01-2025 15:30:10917 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 15:30:11126 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("6"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[24-01-2025 15:30:11163 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("15"ms) [Parameters=["@p6='?' (Size = 450), @p7='?' (DbType = Int32), @p8='?' (Size = 10), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (Size = 10), @p14='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Agents] ([CompanyName], [UserId], [VatNumber])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8);
+INSERT INTO [Details] ([UserId], [Address], [City], [Country], [PhoneNumber], [PostalCode])
+OUTPUT INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p9, @p10, @p11, @p12, @p13, @p14);"
+[24-01-2025 15:30:11177 +02:00 SafeTravelApp.Services.AgentService ] "Agent: SafeTravelApp.Data.Agent signed up successfully."
+[24-01-2025 15:30:11190 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "CreatedAtActionResult", writing value of type '"SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO"'.
+[24-01-2025 15:30:11230 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)" in 400.31ms
+[24-01-2025 15:30:11232 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserAgentAsync (SafeTravelApp)"'
+[24-01-2025 15:30:11234 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/agent/registration""" - 201 309 "application/json; charset=utf-8" 418.1553ms
+[24-01-2025 15:40:06064 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/59""" - null null
+[24-01-2025 15:40:06073 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 15:40:06087 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserById\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] GetUserById(Int32)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 15:40:06272 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("17"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username], [d].[UserId], [d].[Address], [d].[City], [d].[Country], [d].[InsertedAt], [d].[ModifiedAt], [d].[PhoneNumber], [d].[PostalCode]
+FROM [Users] AS [u]
+LEFT JOIN [Details] AS [d] ON [u].[Id] = [d].[UserId]
+WHERE [u].[Id] = @__id_0"
+[24-01-2025 15:40:06292 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 59 was found successfully."
+[24-01-2025 15:40:06301 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 15:40:06308 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)" in 215.3343ms
+[24-01-2025 15:40:06309 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 15:40:06310 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/59""" - 200 309 "application/json; charset=utf-8" 246.0209ms
+[24-01-2025 15:46:53111 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/citizen/registration""" - "application/json-patch+json" 365
+[24-01-2025 15:46:53122 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[24-01-2025 15:46:53127 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)"'
+[24-01-2025 15:46:53134 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignupUserCitizen\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Citizen.CitizenDetailsReadOnlyDTO]] SignupUserCitizenAsync(SafeTravelApp.DTO.Citizen.CitizenSignUpDTO)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 15:46:53198 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("21"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 15:46:53205 +02:00 SafeTravelApp.Services.UserService ] "User: test4 was found successfully."
+[24-01-2025 15:46:53217 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0 OR [u].[Email] = @__username_0"
+[24-01-2025 15:46:53444 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("12"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [Password], [UserRole], [Username])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);"
+[24-01-2025 15:46:53466 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("14"ms) [Parameters=["@p6='?' (DbType = Date), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (Size = 10), @p15='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Citizens] ([BirthDate], [Gender], [Occupation], [UserId])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p6, @p7, @p8, @p9);
+INSERT INTO [Details] ([UserId], [Address], [City], [Country], [PhoneNumber], [PostalCode])
+OUTPUT INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p10, @p11, @p12, @p13, @p14, @p15);"
+[24-01-2025 15:46:53474 +02:00 SafeTravelApp.Services.CitizenService ] "Citizen: SafeTravelApp.Data.Citizen signed up successfully."
+[24-01-2025 15:46:53479 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "CreatedAtActionResult", writing value of type '"SafeTravelApp.DTO.Citizen.CitizenDetailsReadOnlyDTO"'.
+[24-01-2025 15:46:53483 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)" in 344.3841ms
+[24-01-2025 15:46:53484 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.SignupUserCitizenAsync (SafeTravelApp)"'
+[24-01-2025 15:46:53485 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/users/citizen/registration""" - 201 309 "application/json; charset=utf-8" 373.4892ms
+[24-01-2025 15:47:04879 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/60""" - null null
+[24-01-2025 15:47:04883 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 15:47:04885 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserById\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.User.UserReadOnlyDTO]] GetUserById(Int32)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 15:47:04906 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("5"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username], [d].[UserId], [d].[Address], [d].[City], [d].[Country], [d].[InsertedAt], [d].[ModifiedAt], [d].[PhoneNumber], [d].[PostalCode]
+FROM [Users] AS [u]
+LEFT JOIN [Details] AS [d] ON [u].[Id] = [d].[UserId]
+WHERE [u].[Id] = @__id_0"
+[24-01-2025 15:47:04914 +02:00 SafeTravelApp.Services.UserService ] "The user with userId: 60 was found successfully."
+[24-01-2025 15:47:04922 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.User.UserReadOnlyDTO"'.
+[24-01-2025 15:47:04928 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)" in 40.6599ms
+[24-01-2025 15:47:04932 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserById (SafeTravelApp)"'
+[24-01-2025 15:47:04934 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/60""" - 200 309 "application/json; charset=utf-8" 55.4987ms
+[24-01-2025 15:47:29620 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/citizen/test4""" - null null
+[24-01-2025 15:47:29628 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserCitizenByUsername (SafeTravelApp)"'
+[24-01-2025 15:47:29638 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserCitizenByUsername\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentReadOnlyDTO]] GetUserCitizenByUsername(System.String)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 15:47:29723 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("34"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username], [d].[UserId], [d].[Address], [d].[City], [d].[Country], [d].[InsertedAt], [d].[ModifiedAt], [d].[PhoneNumber], [d].[PostalCode], [c].[Id], [c].[BirthDate], [c].[Gender], [c].[InsertedAt], [c].[ModifiedAt], [c].[Occupation], [c].[UserId]
+FROM [Users] AS [u]
+LEFT JOIN [Details] AS [d] ON [u].[Id] = [d].[UserId]
+LEFT JOIN [Citizens] AS [c] ON [u].[Id] = [c].[UserId]
+WHERE ([u].[UserRole] = N'Citizen' AND [u].[Username] = @__username_0) OR [u].[Email] = @__username_0"
+[24-01-2025 15:47:29732 +02:00 SafeTravelApp.Services.CitizenService ] "Citizen: test4 was found"
+[24-01-2025 15:47:29733 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.Citizen.CitizenReadOnlyDTO"'.
+[24-01-2025 15:47:29736 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserCitizenByUsername (SafeTravelApp)" in 93.5095ms
+[24-01-2025 15:47:29741 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserCitizenByUsername (SafeTravelApp)"'
+[24-01-2025 15:47:29742 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/citizen/test4""" - 200 176 "application/json; charset=utf-8" 121.6912ms
+[24-01-2025 15:48:18185 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/test3""" - null null
+[24-01-2025 15:48:18205 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 15:48:18212 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUserAgentByUsername\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO]] GetUserAgentByUsername(System.String)" on controller "SafeTravelApp.Controllers.UserController" ("SafeTravelApp").
+[24-01-2025 15:48:18281 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("37"ms) [Parameters=["@__username_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[InsertedAt], [u].[Lastname], [u].[ModifiedAt], [u].[Password], [u].[UserRole], [u].[Username], [d].[UserId], [d].[Address], [d].[City], [d].[Country], [d].[InsertedAt], [d].[ModifiedAt], [d].[PhoneNumber], [d].[PostalCode], [a].[Id], [a].[CompanyName], [a].[InsertedAt], [a].[ModifiedAt], [a].[UserId], [a].[VatNumber]
+FROM [Users] AS [u]
+LEFT JOIN [Details] AS [d] ON [u].[Id] = [d].[UserId]
+LEFT JOIN [Agents] AS [a] ON [u].[Id] = [a].[UserId]
+WHERE ([u].[UserRole] = N'Agent' AND [u].[Username] = @__username_0) OR [u].[Email] = @__username_0"
+[24-01-2025 15:48:18293 +02:00 SafeTravelApp.Services.AgentService ] "Agent: test3 was found"
+[24-01-2025 15:48:18295 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"SafeTravelApp.DTO.Agent.AgentDetailsReadOnlyDTO"'.
+[24-01-2025 15:48:18296 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)" in 78.5262ms
+[24-01-2025 15:48:18297 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"SafeTravelApp.Controllers.UserController.GetUserAgentByUsername (SafeTravelApp)"'
+[24-01-2025 15:48:18298 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/users/agent/test3""" - 200 309 "application/json; charset=utf-8" 113.507ms
+[24-01-2025 18:23:15714 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...

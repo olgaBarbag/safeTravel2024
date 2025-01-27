@@ -4,6 +4,6 @@
     {
         Local,
         Agent,
-        Visitor
+        Explorer
     }
 }

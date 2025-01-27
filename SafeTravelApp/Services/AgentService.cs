@@ -26,11 +26,11 @@ namespace SafeTravelApp.Services
         }
 
 
-        public async Task<UserReadOnlyDTO> SignUpUserAsync(AgentSignUpDTO request)
+        public async Task<AgentDetailsReadOnlyDTO> SignUpUserAsync(AgentSignUpDTO request)
         {
             Agent agent;
             User user;
-
+            
             try
             {
                 user = _mapper.Map<User>(request);
@@ -44,6 +44,21 @@ namespace SafeTravelApp.Services
                 user.Password = EncryptionUtil.Encrypt(user.Password);
                 await _unitOfWork.UserRepository.AddAsync(user);
 
+                //if (user.Details == null)
+                //{
+                //    user.Details = new UserDetails
+                //    {
+                //        PhoneNumber = request.PhoneNumber!,
+                //        Country = request.Country!,
+                //        City = request.City!,
+                //        Address = request.Address,
+                //        PostalCode = request.PostalCode,
+                //        UserId = user.Id 
+                //    };
+                //    await _unitOfWork.DetailsRepository.AddAsync(user.Details);
+                //}
+
+
                 agent = _mapper.Map<Agent>(request);
 
                 await _unitOfWork.AgentRepository.AddAsync(agent);
@@ -51,7 +66,7 @@ namespace SafeTravelApp.Services
 
                 await _unitOfWork.SaveAsync();
                 _logger.LogInformation("{Message}", "Agent: " + agent + " signed up successfully.");
-                return _mapper.Map<UserReadOnlyDTO>(user); ;
+                return _mapper.Map<AgentDetailsReadOnlyDTO>(user); ;
             }
             catch (Exception ex)
             {

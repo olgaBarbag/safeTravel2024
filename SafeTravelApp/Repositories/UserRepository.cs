@@ -38,6 +38,13 @@ namespace SafeTravelApp.Repositories
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<User?> GetByUserByIdAsync(int id)
+        {
+            return await context.Users!
+                .Include(u => u.Details)
+                .FirstOrDefaultAsync(u => u.Id == id);
+        }
+
         public async Task<List<User>> GetAllUsersFilteredPaginatedAsync(int pageNumber, int pageSize, List<Func<User, bool>> predicates)
         {
             int skip = (pageNumber - 1) * pageSize;

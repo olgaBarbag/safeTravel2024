@@ -12,6 +12,8 @@ namespace SafeTravelApp.Repositories
 
         public UserRepository UserRepository => new(_context);
 
+        public DetailsRepository DetailsRepository => new(_context);
+
         public AgentRepository AgentRepository => new(_context);
 
         public CitizenRepository CitizenRepository => new(_context);    
@@ -27,6 +29,8 @@ namespace SafeTravelApp.Repositories
         public LanguageRepository LanguageRepository => new(_context);
 
         public CertificationRepository CertificationRepository => new(_context);
+
+        
 
         public async Task<bool> SaveAsync()
         {

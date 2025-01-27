@@ -28,7 +28,7 @@ namespace SafeTravelApp.Controllers
 
         [Route("agent/registration")]
         [HttpPost]
-        public async Task<ActionResult<UserReadOnlyDTO>> SignupUserAgentAsync(AgentSignUpDTO? agentSignUpDTO)
+        public async Task<ActionResult<AgentDetailsReadOnlyDTO>> SignupUserAgentAsync(AgentSignUpDTO? agentSignUpDTO)
         {
             //validation
             if (!ModelState.IsValid)
@@ -43,29 +43,33 @@ namespace SafeTravelApp.Controllers
                     });
 
                 // instead of return BadRequest(new { Errors = errors });
-                throw new InvalidRegistrationException("ErrorsInRegistation: " + errors);
+                throw new InvalidRegistrationException("Errors In Registation: " + errors);
             }
+
             if (_applicationService == null)
             {
                 throw new ServerException("ApplicationServiceNull", "Application Service is null");
             }
+
             User? user = await _applicationService.UserService.GetUserByUsernameAsync(agentSignUpDTO!.Username!);
             if (user is not null)
             {
                 throw new EntityAlreadyExistsException("User", "User: " + user.Username + "already exists");
             }
-            UserReadOnlyDTO returnedUserDTO = await _applicationService.AgentService.SignUpUserAsync(agentSignUpDTO);
+
+            AgentDetailsReadOnlyDTO returnedUserDTO = await _applicationService.AgentService.SignUpUserAsync(agentSignUpDTO);
+            var returnedUser = _mapper.Map<User>(returnedUserDTO);
             //if (returnedUser is null)
             //{
             //    throw new InvalidRegistrationException("InvalidRegistration");
             //}
             //var returnedUserDTO = _mapper.Map<UserReadOnlyDTO>(returnedUser);
-            return CreatedAtAction(nameof(GetUserById), new { id = returnedUserDTO.Id }, returnedUserDTO);
+            return CreatedAtAction(nameof(GetUserById), new { id = returnedUser.Id }, returnedUserDTO);
         }
 
         [Route("citizen/registration")]
         [HttpPost]
-        public async Task<ActionResult<UserReadOnlyDTO>> SignupUserCitizenAsync(CitizenSignUpDTO? citizenSignUpDTO)
+        public async Task<ActionResult<CitizenDetailsReadOnlyDTO>> SignupUserCitizenAsync(CitizenSignUpDTO? citizenSignUpDTO)
         {
             if (!ModelState.IsValid)
             {
@@ -79,7 +83,7 @@ namespace SafeTravelApp.Controllers
                     });
 
                 // instead of return BadRequest(new { Errors = errors });
-                throw new InvalidRegistrationException("ErrorsInRegistation: " + errors);
+                throw new InvalidRegistrationException("Errors In Registation: " + errors);
             }
             if (_applicationService == null)
             {
@@ -90,13 +94,14 @@ namespace SafeTravelApp.Controllers
             {
                 throw new EntityAlreadyExistsException("User", "User: " + user.Username + "already exists");
             }
-            UserReadOnlyDTO returnedUserDTO = await _applicationService.CitizenService.SignUpUserAsync(citizenSignUpDTO);
+            CitizenDetailsReadOnlyDTO returnedUserDTO = await _applicationService.CitizenService.SignUpUserAsync(citizenSignUpDTO);
+            var returnedUser = _mapper.Map<User>(returnedUserDTO);
             //if (returnedUser is null)
             //{
             //    throw new InvalidRegistrationException("InvalidRegistration");
             //}
             //var returnedUserDTO = _mapper.Map<UserReadOnlyDTO>(returnedUser);
-            return CreatedAtAction(nameof(GetUserById), new { id = returnedUserDTO.Id }, returnedUserDTO);
+            return CreatedAtAction(nameof(GetUserById), new { id = returnedUser.Id }, returnedUserDTO);
         }
 
         // GET: api/users/{id}
@@ -110,7 +115,7 @@ namespace SafeTravelApp.Controllers
 
         // GET: api/users/agent/{username}
         [HttpGet("agent/{username}")]
-        public async Task<ActionResult<AgentReadOnlyDTO>> GetUserAgentByUsername(string? username)
+        public async Task<ActionResult<AgentDetailsReadOnlyDTO>> GetUserAgentByUsername(string? username)
         {
             var returnedUserAgentDTO = await _applicationService.AgentService.GetAgentByUsernameAsync(username!)
                 ?? throw new EntityNotFoundException("User", "User with username : " + username + " not found");
@@ -119,7 +124,7 @@ namespace SafeTravelApp.Controllers
 
         // GET: api/users/citizen/{username}
         [HttpGet("citizen/{username}")]
-        public async Task<ActionResult<AgentReadOnlyDTO>> GetUserCitizenByUsername(string? username)
+        public async Task<ActionResult<CitizenDetailsReadOnlyDTO>> GetUserCitizenByUsername(string? username)
         {
             var returnedUserCitizenDTO = await _applicationService.CitizenService.GetCitizenByUsernameAsync(username!)
                 ?? throw new EntityNotFoundException("User", "User with username : " + username + " not found");
@@ -165,28 +170,27 @@ namespace SafeTravelApp.Controllers
 
         // PUT: api/users/{id}
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<UserDTO>> UpdateUserAccount(int id, UserUpdateDTO? userUpdateDTO)
+        public async Task<ActionResult<UserReadOnlyDTO>> UpdateUserAccount(int id, UserUpdateDTO? userUpdateDTO)
         {
-            var userId = AppUser!.Id;
+            var userId = AppUser!.Id; //from jwt
             if (id != userId)
             {
                 throw new EntityNotAuthorizedException("User", "ForbiddenAccess");
             }
             User user = _mapper.Map<User>(userUpdateDTO);
+
             User? returnedUser = await _applicationService.UserService.GetUserByUsernameAsync(userUpdateDTO!.Username!);
             if (returnedUser is null)
             {
                 throw new EntityNotFoundException("User", "User: " + user.Username + " not found");
             }
             await _applicationService.UserService.UpdateUserAsync(id, userUpdateDTO);
-            var returnedUserDTO = _mapper.Map<UserDTO>(user);
+            var returnedUserDTO = _mapper.Map<UserReadOnlyDTO>(user);
             return Ok(returnedUserDTO);
         }
 
         // DELETE: api/users/{id}
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var userId = AppUser!.Id;
